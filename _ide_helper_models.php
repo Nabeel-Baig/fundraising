@@ -23,6 +23,61 @@ namespace App\Models{
 
 namespace App\Models{
 /**
+ * App\Models\Category
+ *
+ * @property int $id
+ * @property string $name
+ * @property string $image
+ * @property string $heading
+ * @property string $description
+ * @property string $section_heading1
+ * @property string $section_left_text1
+ * @property string $section_left_text2
+ * @property string $section_right_text1
+ * @property string $section_right_text2
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Fund[] $funds
+ * @property-read int|null $funds_count
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Category onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Category query()
+ * @method static \Illuminate\Database\Query\Builder|Category withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Category withoutTrashed()
+ */
+	class Category extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
+ * App\Models\Fund
+ *
+ * @property int $id
+ * @property int $category_id
+ * @property int $user_id
+ * @property string $name
+ * @property string $image
+ * @property string $description
+ * @property string $amount
+ * @property \Illuminate\Support\Carbon|null $created_at
+ * @property \Illuminate\Support\Carbon|null $updated_at
+ * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \App\Models\Category $category
+ * @property-read \App\Models\User $users
+ * @method static \Illuminate\Database\Eloquent\Builder|Fund newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Fund newQuery()
+ * @method static \Illuminate\Database\Query\Builder|Fund onlyTrashed()
+ * @method static \Illuminate\Database\Eloquent\Builder|Fund query()
+ * @method static \Illuminate\Database\Query\Builder|Fund withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|Fund withoutTrashed()
+ */
+	class Fund extends \Eloquent {}
+}
+
+namespace App\Models{
+/**
  * App\Models\Permission
  *
  * @property int $id
@@ -113,6 +168,8 @@ namespace App\Models{
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property \Illuminate\Support\Carbon|null $deleted_at
+ * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Fund[] $funds
+ * @property-read int|null $funds_count
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read int|null $notifications_count
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
