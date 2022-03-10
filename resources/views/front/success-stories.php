@@ -27,7 +27,7 @@
                 <div class="row mt-5">
                     <div class="col-lg-1"></div>
                     <div class="col-lg-3 m-auto">
-                        <a href="detail-page.php">
+                        <a href="fund_detail.blade.php">
                             <div class="card text-dark worldwideLeader bg-transparent border-0 pe-0 ps-0 pt-0">
                                 <img class="w-100" src="Assets/Images/home/forAYourself.jpeg" alt="Assets/Images/home/forAYourself.jpeg">
                                 <div class="card-body pb-1">
@@ -39,7 +39,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 m-auto">
-                        <a href="detail-page.php">
+                        <a href="fund_detail.blade.php">
                             <div class="card text-dark worldwideLeader bg-transparent border-0 pe-0 ps-0 pt-0">
                                 <img class="w-100" src="Assets/Images/home/forAFriend.jpg" alt="Assets/Images/home/forAFriend.jpg">
                                 <div class="card-body pb-1">
@@ -51,7 +51,7 @@
                         </a>
                     </div>
                     <div class="col-lg-3 m-auto">
-                        <a href="detail-page.php">
+                        <a href="fund_detail.blade.php">
                             <div class="card text-dark worldwideLeader bg-transparent border-0 pe-0 ps-0 pt-0">
                                 <img class="w-100" src="Assets/Images/home/forACharity.jpg" alt="Assets/Images/home/forACharity.jpg">
                                 <div class="card-body pb-1">

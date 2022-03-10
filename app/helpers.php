@@ -44,3 +44,10 @@ if (!function_exists('handleFilesIfPresent')) {
         return $inputData;
     }
 }
+
+if (!function_exists('getPercentage')) {
+    function getPercentage(float $part = null, float $whole = null): int
+    {
+        return ($part/$whole)*100;
+    }
+}

@@ -55,6 +55,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 });
 
 Route::get('fund/{category}',[\App\Http\Controllers\Front\FundController::class,'index'])->name('fund');
+Route::get('fund-detail/{fund}',[\App\Http\Controllers\Front\FundController::class,'fund'])->name('fund.detail');
+Route::get('donate/{fund}',[\App\Http\Controllers\Front\DonationController::class,'index'])->name('donation');
+Route::post('donation',[\App\Http\Controllers\Front\DonationController::class,'donationPost'])->name('donation.post');
 Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('home.index');
 Route::get('{any}', [App\Http\Controllers\Front\HomeController::class, 'home'])->name('home');
 

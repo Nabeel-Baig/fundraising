@@ -43,7 +43,7 @@
                     <h2>New Fundraisers</h2>
                     <div class="row">
                         <div class="col-lg-6 mb-4">
-                            <a class="fundraisersCards" href="detail-page.php">
+                            <a class="fundraisersCards" href="fund_detail.blade.php">
                                 <div class="card shadow">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -76,7 +76,7 @@
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
-                            <a class="fundraisersCards" href="detail-page.php">
+                            <a class="fundraisersCards" href="fund_detail.blade.php">
                                 <div class="card shadow">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -109,7 +109,7 @@
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
-                            <a class="fundraisersCards" href="detail-page.php">
+                            <a class="fundraisersCards" href="fund_detail.blade.php">
                                 <div class="card shadow">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -142,7 +142,7 @@
                             </a>
                         </div>
                         <div class="col-lg-6 mb-4">
-                            <a class="fundraisersCards" href="detail-page.php">
+                            <a class="fundraisersCards" href="fund_detail.blade.php">
                                 <div class="card shadow">
                                     <div class="row">
                                         <div class="col-lg-6">

@@ -5,25 +5,28 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
-use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Fund extends Model
+class Order extends Model
 {
     use HasFactory;
+    use SoftDeletes;
+
     protected $fillable = [
-        'category_id',
+        'order_id',
         'user_id',
+        'fund_id',
         'name',
-        'image',
+        'email',
+        'country',
+        'zipcode',
         'description',
         'amount',
+        'payment_status',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
-
-    use SoftDeletes;
 
     protected $dates = [
         'created_at',
@@ -31,18 +34,15 @@ class Fund extends Model
         'deleted_at',
     ];
 
-    final public function category(): BelongsTo
+    public const ORDER_STATUS = ['Paid', 'Unpaid'];
+
+    final public function funds(): BelongsTo
     {
-        return $this->belongsTo(Category::class);
+        return $this->belongsTo(Fund::class);
     }
 
-    final public function users(): BelongsTo
+    public function get_order_number()
     {
-        return $this->belongsTo('App\Models\User','user_id','id');
-    }
-
-    final public function orders(): hasMany
-    {
-        return $this->hasMany(Order::class);
+        return '#' . str_pad($this->id, 8, "0", STR_PAD_LEFT);
     }
 }

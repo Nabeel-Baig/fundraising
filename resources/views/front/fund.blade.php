@@ -134,7 +134,7 @@
                     <div class="row">
                         @forelse($category->funds as $fund)
                             <div class="col-lg-6 mb-4">
-                            <a class="fundraisersCards" href="javascript:void(0)">
+                            <a class="fundraisersCards" href="{{ route('fund.detail',[$fund->id]) }}">
                                 <div class="card shadow">
                                     <div class="row">
                                         <div class="col-lg-6">
@@ -151,14 +151,13 @@
                                                         {{ Illuminate\Support\Str::limit($fund->description, 50, $end='...') }}
 
                                                     </p>
-                                                    <span>Last donation 1m ago</span>
                                                     <div class="progress">
-                                                        <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                                            <span class="sr-only">70% Complete</span>
+                                                        <div class="progress-bar percent" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                                            <span class="sr-only">{{ getPercentage($fund->orders->sum('amount'),$fund->amount) }}% Complete</span>
                                                         </div>
                                                     </div>
                                                     <div class="raisedAmount">
-                                                        <h6><strong>$876,500 raised</strong> of $1.0M</h6>
+                                                        <h6><strong>${{ number_format($fund->orders->sum('amount')) }} raised</strong> of ${{ number_format($fund->amount) }}</h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -333,5 +332,4 @@
 
 
 </main>
-
 @endsection
