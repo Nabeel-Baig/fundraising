@@ -6,9 +6,11 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class Order extends Model
 {
+//    protected static $table = 'orders';
     use HasFactory;
     use SoftDeletes;
 
@@ -41,8 +43,13 @@ class Order extends Model
         return $this->belongsTo(Fund::class);
     }
 
-    public function get_order_number()
+    public static function boot()
     {
-        return '#' . str_pad($this->id, 8, "0", STR_PAD_LEFT);
+        parent::boot();
+        self::creating(function ($model) {
+            $model->order_id = IdGenerator::generate(['table' => $this->table, 'length' => 6, 'prefix' => 'DON-']);
+        });
     }
+
+
 }

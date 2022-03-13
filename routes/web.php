@@ -53,7 +53,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 });
-
+Route::view('sign-in','front.auth.sign_in')->name('signIn');
+Route::view('sign-up','front.auth.sign_up')->name('signUp');
 Route::get('fund/{category}',[\App\Http\Controllers\Front\FundController::class,'index'])->name('fund');
 Route::get('fund-detail/{fund}',[\App\Http\Controllers\Front\FundController::class,'fund'])->name('fund.detail');
 Route::get('donate/{fund}',[\App\Http\Controllers\Front\DonationController::class,'index'])->name('donation');

@@ -152,7 +152,7 @@
 
                                                     </p>
                                                     <div class="progress">
-                                                        <div class="progress-bar percent" role="progressbar" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100" style="width:50%">
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ getPercentage($fund->orders->sum('amount'),$fund->amount) }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ getPercentage($fund->orders->sum('amount'),$fund->amount) }}%">
                                                             <span class="sr-only">{{ getPercentage($fund->orders->sum('amount'),$fund->amount) }}% Complete</span>
                                                         </div>
                                                     </div>

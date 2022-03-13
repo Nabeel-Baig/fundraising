@@ -12,12 +12,6 @@ class FundController extends Controller
 {
     final public function index(Category $category): View
     {
-        /*$category = Category::whereId($id)->with(['funds' => function($query) {
-            $query->with(['orders' => function ($donation) {
-                $donation->where(['payment_status' => 'Paid'])->sum('amount');
-            }]);
-        }])->first();
-        dd($category);*/
         $category = $category->load('funds');
         return view('front.fund',compact('category'));
     }

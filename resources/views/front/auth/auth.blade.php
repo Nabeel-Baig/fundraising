@@ -9,13 +9,7 @@
     <link rel="shortcut icon" href="{{ asset($setting->favico) }}">
     @include('front.layouts.css')
 </head>
-    <body>
-    @include('front.layouts.header')
-    @yield('content')
-    @include('front.layouts.footer')
-
-    <!-- JAVASCRIPT -->
-    @include('front.layouts.js')
-    @include('sweetalert::alert')
-    </body>
+<body>
+@yield('content')
+</body>
 </html>

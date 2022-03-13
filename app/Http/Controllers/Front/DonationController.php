@@ -20,7 +20,6 @@ class DonationController extends Controller
     {
         try {
             $order = \App\Models\Order::create([
-                'order_id' => '#'.str_pad($latestOrder->id + 1, 8, "0", STR_PAD_LEFT),
                 'user_id' => (Auth::check()) ? auth()->user()->id : NULL,
                 'fund_id' => (int)$request->input('fund_id'),
                 'name' => $request->name,
