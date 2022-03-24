@@ -8,7 +8,17 @@
                     <div class="card donateCard">
                         <div class="card-body">
                             <div class="row">
-                                <h3>{{ $fund->name }}</h3>
+                                <div class="col-lg-10 m-auto">
+                                    <div class="row">
+                                        <div class="col-8 mb-4 col-lg-4 m-auto">
+                                            <img class="donateFormImg" src="{{ $fund->image }}"
+                                                 alt="{{ $fund->image }}">
+                                        </div>
+                                        <div class="col-lg-7 m-auto">
+                                            <h6>{{ $fund->name }}</h6>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="col-lg-10 m-auto">
                                     <form role="form"
                                           action="{{ route('donation.post') }}"
@@ -43,7 +53,8 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <label for="countries" class="lead">Countries</label>
-                                                        <select class="form-control" required name="country" id="country">
+                                                        <select class="form-control" required name="country"
+                                                                id="country">
                                                             <option value="AF" data-capital="Kabul">Afghanistan</option>
                                                             <option value="AX" data-capital="Mariehamn">Aland Islands
                                                             </option>
@@ -425,7 +436,8 @@
                                                     </div>
                                                     <div class="col-lg-6">
                                                         <label for="zipcode" class="form-label">Zip Code</label>
-                                                        <input type="text" class="form-control" id="zipcode" name="zipcode"
+                                                        <input type="text" class="form-control" id="zipcode"
+                                                               name="zipcode"
                                                                placeholder="Zip Code" required>
                                                     </div>
                                                 </div>
@@ -433,7 +445,8 @@
                                                 <h3>Payment method</h3>
                                                 <div class="col-lg-12 required">
                                                     <label for="card_name" class="form-label">Name on Card</label>
-                                                    <input size='4' type='text' class="form-control" id="card_name" name="card_name"
+                                                    <input size='4' type='text' class="form-control" id="card_name"
+                                                           name="card_name"
                                                            placeholder="Name on Card" required>
                                                 </div>
                                                 <div class="col-lg-12  required">
@@ -444,25 +457,45 @@
                                                            id="card_number" name="card_number"
                                                            placeholder="1234 1234 1234 1234" required>
                                                 </div>
-                                                <div class="col-lg-12 cvc required">
-                                                    <label for="card_cvc" class="form-label">CVC</label>
-                                                    <input size='4' type='number' class="form-control card-cvc" id="card_cvc" name="card_cvc"
-                                                           placeholder='ex. 311' required>
-                                                </div>
-                                                <small>Enter 3-digits on back of card. AmEx uses front 4-digit
-                                                    code.</small>
+
                                                 <div class="row">
-                                                    <div class="col-lg-6 expiration required">
-                                                        <label class="form-label">Expiration Month</label>
-                                                        <input type="text" name="card_month" class="form-control card-expiry-month"
-                                                               placeholder='MM' size='2' required>
+                                                    <div class="col-lg-4 cvc required">
+                                                        <label for="card_cvc" class="form-label">CVC</label>
+                                                        <input size='4' type='number' class="form-control card-cvc"
+                                                               id="card_cvc" name="card_cvc"
+                                                               placeholder='ex. 311' required>
+                                                        <small>Enter 3-digits on back of card.</small>
                                                     </div>
-                                                    <div class="col-lg-6 expiration required">
+                                                    <div class="col-lg-4 expiration required">
+                                                        <label class="form-label">Expiration Month</label>
+                                                        <select name="card_month" id="card_month" class="form-control card-expiry-month" required>
+                                                            <option selected>Expiration Month</option>
+                                                            <option value="01">01</option>
+                                                            <option value="02">02</option>
+                                                            <option value="03">03</option>
+                                                            <option value="04">04</option>
+                                                            <option value="05">05</option>
+                                                            <option value="06">06</option>
+                                                            <option value="07">07</option>
+                                                            <option value="08">08</option>
+                                                            <option value="09">09</option>
+                                                            <option value="10">10</option>
+                                                            <option value="11">11</option>
+                                                            <option value="12">12</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-4 expiration required">
                                                         <label for="card_year" class="form-label">Expiration
                                                             Year</label>
-                                                        <input size='4' type='text'
-                                                               class="form-control card-expiry-year" name="card_year" id="card_year"
-                                                               placeholder='YYYY' required>
+                                                        <select name="card_year" id="card_year"
+                                                                class="form-control card-expiry-year" required>
+                                                            <option selected>Expiration Year</option>
+                                                            <option value="2022">22</option>
+                                                            <option value="2023">23</option>
+                                                            <option value="2024">24</option>
+                                                            <option value="2025">25</option>
+                                                            <option value="2026">26</option>
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>

@@ -17,7 +17,7 @@
             <div class="card">
                 <div class="card-body">
 
-                    <form method="POST" action="{{ route('admin.'.request()->segment(2).'.update',[$course->id]) }}" class="custom-validation" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.'.request()->segment(2).'.update',[$fund->id]) }}" class="custom-validation" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
@@ -25,7 +25,7 @@
                             <select name="category_id" id="category_id" class="form-control @error('category_id') parsley-error @enderror" required>
                                 <option value="">{{ ucwords(str_replace('_',' ','select_category')) }}</option>
                                 @forelse($categories as $id => $categories)
-                                    <option value="{{ $id }}" {{ ($course->category_id === $id) ? 'selected' : '' }}>{{ $categories }}</option>
+                                    <option value="{{ $id }}" {{ ($fund->category_id === $id) ? 'selected' : '' }}>{{ $categories }}</option>
                                 @empty
                                 @endforelse
                             </select>
@@ -37,7 +37,7 @@
                         <div class="mb-3">
                             <label class="form-label">{{ ucwords(str_replace('_',' ','name')) }}</label>
                             <input type="text" class="form-control @error('name') parsley-error @enderror" name="name"
-                                   id="name" placeholder="{{ ucwords(str_replace('_',' ','name')) }}" value="{{ $course->name }}" required/>
+                                   id="name" placeholder="{{ ucwords(str_replace('_',' ','name')) }}" value="{{ $fund->name }}" required/>
                             @error('name')
                             <span class="text-red">{{ $message }}</span>
                             @enderror
@@ -45,14 +45,23 @@
 
                         <div class="mb-3">
                             <label class="form-label">{{ ucwords(str_replace('_',' ','description')) }}</label>
-                            <textarea class="form-control" name="description" id="description" placeholder="{{ ucwords(str_replace('_',' ','description')) }}">{{ $course->description }}</textarea>
+                            <textarea class="form-control" name="description" id="description" placeholder="{{ ucwords(str_replace('_',' ','description')) }}">{{ $fund->description }}</textarea>
                             @error('description')
                             <span class="text-red">{{ $message }}</span>
                             @enderror
                         </div>
 
                         <div class="mb-3">
-                            <input type="file" id="image" class="dropify" name="image" value="{{ $course->image }}" data-height="200">
+                            <label class="form-label">{{ ucwords(str_replace('_',' ','amount')) }}</label>
+                            <input type="number" class="form-control @error('amount') parsley-error @enderror" name="amount"
+                                   id="name" placeholder="{{ ucwords(str_replace('_',' ','amount')) }}" value="{{ old('amount',$fund->amount) }}" required/>
+                            @error('amount')
+                            <span class="text-red">{{ $message }}</span>
+                            @enderror
+                        </div>
+
+                        <div class="mb-3">
+                            <input type="file" id="image" class="dropify" name="image" value="{{ $fund->image }}" data-height="200">
                             @error('image')
                             <span class="text-red">{{ $message }}</span>
                             @enderror
@@ -82,7 +91,7 @@
     <script>
         $(function () {
             $('#image').dropify({
-                defaultFile: "{{ asset($course->image) }}",
+                defaultFile: "{{ asset($fund->image) }}",
                 messages: {
                     'default': 'Drop a file OR click',
                 }

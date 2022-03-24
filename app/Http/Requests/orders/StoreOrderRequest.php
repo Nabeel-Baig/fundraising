@@ -1,12 +1,12 @@
 <?php
 
-namespace App\Http\Requests\courses;
+namespace App\Http\Requests\funds;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Gate;
 use Symfony\Component\HttpFoundation\Response;
 
-class MassDestroyCourseRequest extends FormRequest
+class StoreOrderRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +15,7 @@ class MassDestroyCourseRequest extends FormRequest
      */
     public function authorize()
     {
-        abort_if(Gate::denies('course_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('fund_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         return true;
     }
 
@@ -27,8 +27,11 @@ class MassDestroyCourseRequest extends FormRequest
     public function rules()
     {
         return [
-            'ids' => 'required|array',
-            'ids.*' => 'exists:courses,id'
+            'category_id' => ['required','integer'],
+            'name' => ['required', 'string', 'max:255'],
+            'description' => ['sometimes','required'],
+            'amount' => ['required'],
+            'image' => ['sometimes','required', 'image' ,'mimes:jpg,jpeg,png'],
         ];
     }
 }

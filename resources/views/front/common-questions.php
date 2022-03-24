@@ -38,7 +38,7 @@
                         <p>
                            Raising money for yourself or a loved one has never been easier. Plus, we’re here to help. Our Customer Care team will support you with customer service every step of the way.
                         </p>
-                        <a href="how-it-works.php" class="see-all">How It Work</a>
+                        <a href="how_it_works.blade.php" class="see-all">How It Work</a>
 
                      </div>
                   </div>

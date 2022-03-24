@@ -10,7 +10,6 @@ use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class Order extends Model
 {
-//    protected static $table = 'orders';
     use HasFactory;
     use SoftDeletes;
 
@@ -40,16 +39,21 @@ class Order extends Model
 
     final public function funds(): BelongsTo
     {
-        return $this->belongsTo(Fund::class);
+        return $this->belongsTo('App\Models\Fund','fund_id','id');
     }
 
-    public static function boot()
+    final public function users(): BelongsTo
+    {
+        return $this->belongsTo('App\Models\User','user_id','id');
+    }
+
+    /*public static function boot()
     {
         parent::boot();
         self::creating(function ($model) {
             $model->order_id = IdGenerator::generate(['table' => $this->table, 'length' => 6, 'prefix' => 'DON-']);
         });
-    }
+    }*/
 
 
 }

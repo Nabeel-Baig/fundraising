@@ -1,9 +1,12 @@
 @extends('layouts.master')
+
 @section('title') @lang('translation.Data_Tables') @endsection
+
 @section('css')
     <!-- DataTables -->
     <link href="{{ URL::asset('/assets/libs/datatables/datatables.min.css') }}" rel="stylesheet" type="text/css" />
 @endsection
+
 @section('content')
 
     @component('components.breadcrumb')
@@ -16,11 +19,11 @@
             <div class="card">
                 <div class="card-body">
                     <div class="float-right">
-                        @can('category_delete')
+                        @can('fund_delete')
                             <button type="button" class="btn btn-danger" id="delete_all">Delete Selected</button>
                         @endcan
-                        @can('category_create')
-                            <a class="btn btn-info" href="{{ route('admin.' . request()->segment(2) . '.create') }}">Add</a>
+                        @can('fund_create')
+                            <a class="btn btn-info" href="{{ route('admin.'.request()->segment(2).'.create') }}">Add</a>
                         @endcan
                     </div>
                     <table id="example1" class="table table-striped table-bordered dt-responsive nowrap">
@@ -29,8 +32,12 @@
                                 <th width="10">
                                     <input type="checkbox" id="select_all">All
                                 </th>
-                                <th>Id</th>
-                                <th>Title</th>
+                                <th>{{ ucwords(str_replace('_',' ','id')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','image')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','user')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','category')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','name')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','amount')) }}</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -41,7 +48,7 @@
         </div> <!-- end col -->
     </div> <!-- end row -->
 
-    @can('category_show')
+    @can('fund_show')
     <!-- sample modal content -->
     <div id="viewModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel"
          aria-hidden="true">
@@ -57,40 +64,24 @@
                         <table class="table table-hover table-striped">
                             <tbody>
                             <tr>
-                                <th>{{ucwords(str_replace('_',' ','name'))}}</th>
-                                <td id="name" align="center"></td>
-                            </tr>
-                            <tr>
-                                <th>{{ucwords(str_replace('_',' ','heading'))}}</th>
-                                <td id="heading" align="center"></td>
-                            </tr>
-                            <tr>
-                                <th>{{ucwords(str_replace('_',' ','description'))}}</th>
-                                <td id="description" align="center"></td>
-                            </tr>
-                            <tr>
-                                <th>{{ucwords(str_replace('_',' ','section_heading1'))}}</th>
-                                <td id="section_heading1" align="center"></td>
-                            </tr>
-                            <tr>
-                                <th>{{ucwords(str_replace('_',' ','section_left_text1'))}}</th>
-                                <td id="section_left_text1" align="center"></td>
-                            </tr>
-                            <tr>
-                                <th>{{ucwords(str_replace('_',' ','section_left_text2'))}}</th>
-                                <td id="section_left_text2" align="center"></td>
-                            </tr>
-                            <tr>
-                                <th>{{ucwords(str_replace('_',' ','section_right_text1'))}}</th>
-                                <td id="section_right_text1" align="center"></td>
-                            </tr>
-                            <tr>
-                                <th>{{ucwords(str_replace('_',' ','section_right_text2'))}}</th>
-                                <td id="section_right_text2" align="center"></td>
+                                <th>{{ucwords(str_replace('_',' ','category_name'))}}</th>
+                                <td id="category_name" align="center"></td>
                             </tr>
                             <tr>
                                 <th>{{ucwords(str_replace('_',' ','image'))}}</th>
                                 <td id="image" align="center"></td>
+                            </tr>
+                            <tr>
+                                <th>{{ucwords(str_replace('_',' ','name'))}}</th>
+                                <td id="name" align="center"></td>
+                            </tr>
+                            <tr>
+                                <th>{{ucwords(str_replace('_',' ','amount'))}}</th>
+                                <td id="amount" align="center"></td>
+                            </tr>
+                            <tr>
+                                <th>{{ucwords(str_replace('_',' ','description'))}}</th>
+                                <td id="description" align="center"></td>
                             </tr>
                             </tbody>
                         </table>
@@ -104,7 +95,7 @@
     </div><!-- /.modal -->
     @endcan
 
-    @can('category_delete')
+    @can('fund_delete')
     <!-- Delete content -->
     <div id="confirmModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel"
          aria-hidden="true">
@@ -134,7 +125,6 @@
     <script src="{{ URL::asset('/assets/libs/pdfmake/pdfmake.min.js') }}"></script>
     <!-- Datatable init js -->
     <script src="{{ URL::asset('/assets/js/pages/datatables.init.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 @endsection
 @section('script-bottom')
     <script>
@@ -176,8 +166,25 @@
                         name: 'id'
                     },
                     {
+                        data: 'image',
+                        name: 'image',
+                        orderable: false
+                    },
+                    {
+                        data: 'users.name',
+                        name: 'users.name',
+                    },
+                    {
+                        data: 'category.name',
+                        name: 'category.name'
+                    },
+                    {
                         data: 'name',
                         name: 'name'
+                    },
+                    {
+                        data: 'amount',
+                        name: 'amount'
                     },
                     {
                         data: 'action',
@@ -186,6 +193,8 @@
                     }
                 ]
             });
+
+            @can('fund_show')
             // View Records
             $(document, this).on('click', '.view', function () {
                 let id = $(this).attr('id');
@@ -194,19 +203,18 @@
                     url: url.replace(':id',id),
                     dataType: "json",
                     success: function (data) {
-                        document.getElementById('name').innerText = data.name;
-                        document.getElementById('heading').innerText = data.heading;
-                        document.getElementById('description').innerText = data.description;
-                        document.getElementById('section_heading1').innerText = data.section_heading1;
-                        document.getElementById('section_left_text1').innerText = data.section_left_text1;
-                        document.getElementById('section_left_text2').innerText = data.section_left_text2;
-                        document.getElementById('section_right_text1').innerText = data.section_right_text1;
-                        document.getElementById('section_right_text2').innerText = data.section_right_text2;
                         document.getElementById('image').innerHTML = `<img alt="{{asset('')}}${data.image}" src="{{asset('')}}${data.image}" width="100" />`;
+                        document.getElementById('category_name').innerText = data.category.name;
+                        document.getElementById('name').innerText = data.name;
+                        document.getElementById('amount').innerText = data.amount;
+                        document.getElementById('description').innerText = data.description;
                         $("#viewModal").modal('show');
                     }
                 })
             })
+            @endcan
+
+            @can('fund_delete')
             var delete_id;
             $(document, this).on('click', '.delete', function () {
                 delete_id = $(this).attr('id');
@@ -268,6 +276,7 @@
                     toastr.error("Select at least one record");
                 }
             });
+            @endcan
         })
     </script>
 @endsection

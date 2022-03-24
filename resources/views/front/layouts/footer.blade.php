@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row position-relative">
             <div class="col-lg-3">
-                <a href="javascript:void(0)" class="footerLogo"><img class="w-100" src="{{ asset($setting->logo) }}" alt=""></a>
+                <a href="{{ route('home.index') }}" class="footerLogo"><img class="w-100" src="{{ asset($setting->logo) }}" alt=""></a>
                 <ul>
                     <li>
                         <button type="button" class="btn btn-light p-1 ps-3 pe-3 mt-1 mb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" translate="no" id='language-selected'><b>Select language</b></button>

@@ -1300,3 +1300,80 @@ input[type=number] {
 .select2-container--default .select2-selection--single .select2-selection__arrow{
   top: 8px !important;
 }
+.paymentDetails {
+    background-color: rgba(137, 207, 240, 0.2);
+    padding: 30px 15px;
+}
+
+img.donateFormImg {
+    width: 100%;
+    height: 100%;
+    max-height: 140px;
+    min-height: 140px;
+    object-fit: cover;
+}
+
+
+.searchBar {
+    position: absolute;
+    right: 0;
+    left: 0;
+    width: 0;
+    margin: auto;
+    top: 0;
+    opacity: 0;
+    transition: 1s;
+}
+
+.searchIcon i{
+    opacity: 0;
+    transition: 1s;
+}
+
+.searchBarActive{
+    width: 80%;
+    opacity: 1;
+    transition: 1s;
+}
+
+.searchIconShow i{
+    opacity: 1;
+    transition: 1s;
+}
+
+.searchBar input {
+    height: 100%;
+    padding: 31px 10px;
+    border: none;
+    color: #30515b;
+    font-size: 1.3rem;
+}
+
+.searchBar input:focus {
+    box-shadow: 0 0 0 0.25rem rgb(13 110 253 / 0%);
+}
+
+.searchBar .input-group-text{
+    color: #fff;
+    background-color: #30515b;
+    border: 1px solid #30515b;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #30515b;
+    height: 25px;
+    width: 25px;
+    color: #fff;
+    border-radius: 50px !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.8rem;
+}
+
+.input-group>.form-control:focus, .input-group>.form-select:focus{
+    z-index: 0 !important;
+}

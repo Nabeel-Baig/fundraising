@@ -8,6 +8,7 @@ use App\Models\Fund;
 use App\Models\Payment;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
+use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class DonationController extends Controller
 {
@@ -19,9 +20,11 @@ class DonationController extends Controller
     public function donationPost(StoreDonationRequest $request)
     {
         try {
+            $order_id = IdGenerator::generate(['table' => 'orders', 'field' => 'order_id', 'length' => 6, 'prefix' => 'INV-']);
             $order = \App\Models\Order::create([
                 'user_id' => (Auth::check()) ? auth()->user()->id : NULL,
                 'fund_id' => (int)$request->input('fund_id'),
+                'order_id' => $order_id,
                 'name' => $request->name,
                 'email' => $request->email,
                 'country' => $request->country,
@@ -30,6 +33,7 @@ class DonationController extends Controller
                 'amount' => $request->amount,
                 'payment_status' => 'Unpaid'
             ]);
+            $order->save();
             \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
             $customer = \Stripe\Charge::create([
                 "amount" => (float)$request->amount * 100,
@@ -43,7 +47,7 @@ class DonationController extends Controller
 
                 $payment = new Payment();
                 $payment->user_id = $order->user_id;
-                $payment->order_id = $order->order_id;
+                $payment->order_id = $order->id;
                 $payment->stripe_id = $request->stripeToken;
                 $payment->amount = $request->amount;
                 $payment->balance_transaction = $customer->balance_transaction;
@@ -61,6 +65,6 @@ class DonationController extends Controller
         } catch (\Exception $e) {
             dd($e->getMessage());
         }
-        return back();
+        return back()->withSuccess('Thank you for your donations.');;
     }
 }

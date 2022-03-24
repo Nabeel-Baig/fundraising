@@ -85,6 +85,11 @@ class User extends Authenticatable
         return $this->hasMany(Fund::class);
     }
 
+    final public function orders(): hasMany
+    {
+        return $this->hasMany(Order::class);
+    }
+
     public function generateTwoFactorCode()
     {
         $this->timestamps = false;

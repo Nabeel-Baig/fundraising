@@ -7,7 +7,7 @@
                         <a class="nav-link" href="javascript:void(0)"><i class="fas fa-search"></i></a>
                     </li>
                     <li class="nav-item">
-                        <a class="navbar-brand m-auto" href="index.php"><img class="w-100"
+                        <a class="navbar-brand m-auto" href="{{ route('home.index') }}"><img class="w-100"
                                                                              src="{{ asset($setting->logo) }}"
                                                                              alt="{{ asset($setting->logo) }}"></a>
                     </li>
@@ -23,11 +23,11 @@
                 </ul>
             </div>
             <li class="nav-item footerStartAfundly">
-                <a class="nav-link StartAfundly" href="javascript:void(0)">Start Fundraising</a>
+                <a class="nav-link StartAfundly" href="{{ route('home.index') }}">Start Fundraising</a>
             </li>
             <div class="collapse navbar-collapse" id="navbarTogglerDemo01">
                 <ul class="navbar-nav m-auto">
-                    <a class="navbar-brand m-auto" href="index.php"><img class="w-100"
+                    <a class="navbar-brand m-auto" href="{{ route('home.index') }}"><img class="w-100"
                                                                          src="{{ asset($setting->logo) }}"
                                                                          alt="{{ asset($setting->logo) }}"></a>
                     <li class="nav-item searchLi">
@@ -45,8 +45,8 @@
                         <a href="javascript:void(0)" class="nav-link dropdown-toggle"
                            data-toggle="dropdown">Discover</a>
                         <ul class="dropdown-menu shadow">
-                            <li><a class="nav-link" href="discover.php">Fundraisers</a></li>
-                            <li><a class="nav-link" href="success-stories.php">Success Stories</a></li>
+                            <li><a class="nav-link" href="{{ route('discover') }}">Fundraisers</a></li>
+                            <li><a class="nav-link" href="{{ url('success-stories') }}">Success Stories</a></li>
                             <li><a class="nav-link" href="coronavirus-fundraising.php">Coronavirus fundraising</a></li>
                             <li><a class="nav-link" href="pricing.php">Pricing</a></li>
                         </ul>
@@ -59,14 +59,14 @@
                                 <li><a class="nav-link" href="{{ route('fund',[$category->id]) }}">{{ $category->name }}</a></li>
                             @endforeach
                             <hr class="m-0">
-                            <li><a class="nav-link seeAll pb-0" href="see-all.php">See all</a></li>
+                            <li><a class="nav-link seeAll pb-0" href="{{ route('discover') }}">See all</a></li>
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="how-it-works.php">How it works</a>
+                        <a class="nav-link" href="{{ url('how-it-works') }}">How it works</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="sign-in.php">Sign Up</a>
+                        <a class="nav-link" href="{{ route('signIn') }}">Sign In</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link StartAfundly" href="becomemember.php">Start Fundraising</a>

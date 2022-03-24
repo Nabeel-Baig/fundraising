@@ -53,8 +53,8 @@ class CategoriesController extends Controller
 
     public function store(StoreCategoryRequest $request)
     {
-        Category::create($request->all());
-        return redirect()->route('admin.categories.index')->withToastSuccess('Category Created Successfully!');
+        Category::create(handleFiles(\request()->segment(2),$request->validated()));
+        return redirect()->route('admin.' . request()->segment(2) . '.index')->withToastSuccess('Category Created Successfully!');
     }
 
     public function show(Category $category)
@@ -71,7 +71,7 @@ class CategoriesController extends Controller
 
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $category->update($request->all());
+        $category->update(handleFilesIfPresent(\request()->segment(2),$request->validated(), $category));
         return redirect()->route('admin.categories.index')->withToastSuccess('Category Updated Successfully!');
     }
 

@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
@@ -44,5 +45,10 @@ class Fund extends Model
     final public function orders(): hasMany
     {
         return $this->hasMany(Order::class);
+    }
+
+    final public function scopeNearYou(Builder $query): Builder
+    {
+        return $this->inRandomOrder()->take(6);
     }
 }

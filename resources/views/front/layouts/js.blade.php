@@ -3,6 +3,7 @@
 <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
 <script src="{{ asset('assets/front/') }}/Js/Custom_js.js"></script>
 <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js" integrity="sha512-VEd+nq25CkR676O+pLBnDW09R7VQX9Mdiij052gVCp5yVH3jGtH70Ho/UUv4mJDsEdTvqRCFZg0NKGiojGnUCw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {{--<script src="{{ asset('assets/front/') }}/Js/<?= basename($_SERVER["SCRIPT_FILENAME"], '.php') ?>.js"></script>--}}
 <script type="text/javascript">
     function googleTranslateElementInit() {

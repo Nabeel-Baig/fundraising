@@ -19,11 +19,8 @@
             <div class="card">
                 <div class="card-body">
                     <div class="float-right">
-                        @can('course_delete')
+                        @can('order_delete')
                             <button type="button" class="btn btn-danger" id="delete_all">Delete Selected</button>
-                        @endcan
-                        @can('course_create')
-                            <a class="btn btn-info" href="{{ route('admin.'.request()->segment(2).'.create') }}">Add</a>
                         @endcan
                     </div>
                     <table id="example1" class="table table-striped table-bordered dt-responsive nowrap">
@@ -32,9 +29,16 @@
                                 <th width="10">
                                     <input type="checkbox" id="select_all">All
                                 </th>
-                                <th>Id</th>
-                                <th>Image</th>
-                                <th>Name</th>
+                                <th>{{ ucwords(str_replace('_',' ','id')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','order_id')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','user')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','fund')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','name')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','email')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','country')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','zipcode')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','amount')) }}</th>
+                                <th>{{ ucwords(str_replace('_',' ','payment_status')) }}</th>
                                 <th>Action</th>
                             </tr>
                         </thead>
@@ -45,7 +49,7 @@
         </div> <!-- end col -->
     </div> <!-- end row -->
 
-    @can('course_show')
+    @can('order_show')
     <!-- sample modal content -->
     <div id="viewModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel"
          aria-hidden="true">
@@ -61,16 +65,36 @@
                         <table class="table table-hover table-striped">
                             <tbody>
                             <tr>
-                                <th>{{ucwords(str_replace('_',' ','category_name'))}}</th>
-                                <td id="category_name" align="center"></td>
+                                <th>{{ucwords(str_replace('_',' ','order_id'))}}</th>
+                                <td id="order_id" align="center"></td>
                             </tr>
                             <tr>
-                                <th>{{ucwords(str_replace('_',' ','image'))}}</th>
-                                <td id="image" align="center"></td>
+                                <th>{{ucwords(str_replace('_',' ','fund_name'))}}</th>
+                                <td id="fund_name" align="center"></td>
                             </tr>
                             <tr>
                                 <th>{{ucwords(str_replace('_',' ','name'))}}</th>
                                 <td id="name" align="center"></td>
+                            </tr>
+                            <tr>
+                                <th>{{ucwords(str_replace('_',' ','email'))}}</th>
+                                <td id="email" align="center"></td>
+                            </tr>
+                            <tr>
+                                <th>{{ucwords(str_replace('_',' ','country'))}}</th>
+                                <td id="country" align="center"></td>
+                            </tr>
+                            <tr>
+                                <th>{{ucwords(str_replace('_',' ','zipcode'))}}</th>
+                                <td id="zipcode" align="center"></td>
+                            </tr>
+                            <tr>
+                                <th>{{ucwords(str_replace('_',' ','amount'))}}</th>
+                                <td id="amount" align="center"></td>
+                            </tr>
+                            <tr>
+                                <th>{{ucwords(str_replace('_',' ','payment_status'))}}</th>
+                                <td id="payment_status" align="center"></td>
                             </tr>
                             <tr>
                                 <th>{{ucwords(str_replace('_',' ','description'))}}</th>
@@ -88,7 +112,7 @@
     </div><!-- /.modal -->
     @endcan
 
-    @can('course_delete')
+    @can('order_delete')
     <!-- Delete content -->
     <div id="confirmModal" class="modal fade" tabindex="-1" aria-labelledby="myModalLabel"
          aria-hidden="true">
@@ -159,13 +183,40 @@
                         name: 'id'
                     },
                     {
-                        data: 'image',
-                        name: 'image',
-                        orderable: false
+                        data: 'order_id',
+                        name: 'order_id'
+                    },
+                    {
+                        data: 'users.name',
+                        name: 'users.name',
+                    },
+                    {
+                        data: 'funds.name',
+                        name: 'funds.name'
                     },
                     {
                         data: 'name',
                         name: 'name'
+                    },
+                    {
+                        data: 'email',
+                        name: 'email'
+                    },
+                    {
+                        data: 'country',
+                        name: 'country'
+                    },
+                    {
+                        data: 'zipcode',
+                        name: 'zipcode'
+                    },
+                    {
+                        data: 'amount',
+                        name: 'amount'
+                    },
+                    {
+                        data: 'payment_status',
+                        name: 'payment_status'
                     },
                     {
                         data: 'action',
@@ -175,7 +226,7 @@
                 ]
             });
 
-            @can('course_show')
+            @can('order_show')
             // View Records
             $(document, this).on('click', '.view', function () {
                 let id = $(this).attr('id');
@@ -184,10 +235,14 @@
                     url: url.replace(':id',id),
                     dataType: "json",
                     success: function (data) {
-                        console.log(data.image)
-                        document.getElementById('image').innerHTML = `<img alt="{{asset('')}}${data.image}" src="{{asset('')}}${data.image}" width="100" />`;
-                        document.getElementById('category_name').innerText = data.category.name;
+                        document.getElementById('fund_name').innerText = data.funds.name;
                         document.getElementById('name').innerText = data.name;
+                        document.getElementById('order_id').innerText = data.order_id;
+                        document.getElementById('email').innerText = data.email;
+                        document.getElementById('country').innerText = data.country;
+                        document.getElementById('zipcode').innerText = data.zipcode;
+                        document.getElementById('amount').innerText = data.amount;
+                        document.getElementById('payment_status').innerText = data.payment_status;
                         document.getElementById('description').innerText = data.description;
                         $("#viewModal").modal('show');
                     }
@@ -195,7 +250,7 @@
             })
             @endcan
 
-            @can('course_delete')
+            @can('order_delete')
             var delete_id;
             $(document, this).on('click', '.delete', function () {
                 delete_id = $(this).attr('id');

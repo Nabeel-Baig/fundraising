@@ -43,9 +43,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::delete('categories/destroy', [App\Http\Controllers\Admin\CategoriesController::class, 'massDestroy'])->name('categories.massDestroy');
     Route::resource('categories', CategoriesController::class);
 
-    // Courses
-    Route::delete('courses/destroy', [App\Http\Controllers\Admin\CoursesController::class, 'massDestroy'])->name('courses.massDestroy');
-    Route::resource('courses', CoursesController::class);
+    // Funds
+    Route::delete('funds/destroy', [App\Http\Controllers\Admin\FundsController::class, 'massDestroy'])->name('funds.massDestroy');
+    Route::resource('funds', FundsController::class);
+
+    // Orders
+    Route::delete('orders/destroy', [App\Http\Controllers\Admin\OrdersController::class, 'massDestroy'])->name('orders.massDestroy');
+    Route::resource('orders', OrdersController::class);
 
     // Update User Details
     Route::put('/update-profile/{user}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
@@ -53,12 +57,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 });
-Route::view('sign-in','front.auth.sign_in')->name('signIn');
+Route::get('sign-in',[\App\Http\Controllers\Front\LoginController::class,'index'])->name('signIn');
 Route::view('sign-up','front.auth.sign_up')->name('signUp');
 Route::get('fund/{category}',[\App\Http\Controllers\Front\FundController::class,'index'])->name('fund');
 Route::get('fund-detail/{fund}',[\App\Http\Controllers\Front\FundController::class,'fund'])->name('fund.detail');
 Route::get('donate/{fund}',[\App\Http\Controllers\Front\DonationController::class,'index'])->name('donation');
 Route::post('donation',[\App\Http\Controllers\Front\DonationController::class,'donationPost'])->name('donation.post');
+Route::get('discover', [App\Http\Controllers\Front\DiscoverController::class, 'index'])->name('discover');
 Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('home.index');
 Route::get('{any}', [App\Http\Controllers\Front\HomeController::class, 'home'])->name('home');
 

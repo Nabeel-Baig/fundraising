@@ -10,6 +10,22 @@
     @include('front.layouts.css')
 </head>
 <body>
+<section class="mt-4">
+    <div class="container">
+        <div class="row">
+            <div class="col-6 col-lg-3 m-auto ms-0">
+                <a class="brandong-logo" href="{{ route('home.index') }}"><img class="w-100" src="{{ asset($setting->logo) }}"
+                                                                    alt="{{ asset($setting->logo) }}"></a>
+            </div>
+            <div class="col-6 col-lg-4 text-end me-0 m-auto">
+                <div>
+                    Don't have an account?
+                    <a href="becomemember.php" class="see-all">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 @yield('content')
 </body>
 </html>

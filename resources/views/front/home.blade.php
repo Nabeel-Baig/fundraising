@@ -42,31 +42,31 @@
                 <div class="col-lg-9 m-auto">
                     <h2>New Fundraisers</h2>
                     <div class="row">
+                        @forelse($fundraisers as $fundraiser)
                         <div class="col-lg-6 mb-4">
-                            <a class="fundraisersCards" href="fund_detail.blade.php">
+                            <a class="fundraisersCards" href="{{ route('fund.detail',[$fundraiser->id]) }}">
                                 <div class="card shadow">
                                     <div class="row">
                                         <div class="col-lg-6">
-                                            <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/topFundraisersCardImg01.jpg" alt="Assets/Images/home/topFundraisersCardImg01.jpg">
+                                            <img class="w-100" src="{{ asset($fundraiser->image) }}" alt="{{ asset($fundraiser->image) }}">
                                         </div>
                                         <div class="col-lg-6 m-auto">
                                             <div class="card-body">
                                                 <div class="card-title">
-                                                    <h6>Medicine Hat, AB</h6>
+                                                    <h6>{{ $fundraiser->users->name }}</h6>
                                                 </div>
                                                 <div class="cardDetails">
-                                                    <h6 class="subHeading">Freedom Convoy 2022</h6>
+                                                    <h6 class="subHeading">{{ $fundraiser->name }}</h6>
                                                     <p>
-                                                        To our Fellow Canadians, the time for political over reach is over. Our cu…
+                                                        {{ Illuminate\Support\Str::limit($fundraiser->description, 50, $end='...') }}
                                                     </p>
-                                                    <span>Last donation 1m ago</span>
                                                     <div class="progress">
-                                                        <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                                            <span class="sr-only">70% Complete</span>
+                                                        <div class="progress-bar" role="progressbar" aria-valuenow="{{ getPercentage($fundraiser->orders->sum('amount'),$fundraiser->amount) }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ getPercentage($fundraiser->orders->sum('amount'),$fundraiser->amount) }}%">
+                                                            <span class="sr-only">{{ getPercentage($fundraiser->orders->sum('amount'),$fundraiser->amount) }}% Complete</span>
                                                         </div>
                                                     </div>
                                                     <div class="raisedAmount">
-                                                        <h6><strong>$876,500 raised</strong> of $1.0M</h6>
+                                                        <h6><strong>${{ number_format($fundraiser->orders->sum('amount')) }} raised</strong> of ${{ number_format($fundraiser->amount) }}</h6>
                                                     </div>
                                                 </div>
                                             </div>
@@ -75,108 +75,9 @@
                                 </div>
                             </a>
                         </div>
-                        <div class="col-lg-6 mb-4">
-                            <a class="fundraisersCards" href="fund_detail.blade.php">
-                                <div class="card shadow">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/topFundraisersCardImg02.jpg" alt="Assets/Images/home/topFundraisersCardImg02.jpg">
-                                        </div>
-                                        <div class="col-lg-6 m-auto">
-                                            <div class="card-body">
-                                                <div class="card-title">
-                                                    <h6>Riverhills QLD</h6>
-                                                </div>
-                                                <div class="cardDetails">
-                                                    <h6 class="subHeading">Tonga Tsunami relief by Pita Taufatofua</h6>
-                                                    <p>
-                                                        Hi All, Pita Taufatofua, the Tongan Flag Bearer here. As you all know …
-                                                    </p>
-                                                    <span>Last donation 52s ago</span>
-                                                    <div class="progress">
-                                                        <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                                            <span class="sr-only">70% Complete</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="raisedAmount">
-                                                        <h6><strong>$615,590 raised</strong> of $1.0M</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <a class="fundraisersCards" href="fund_detail.blade.php">
-                                <div class="card shadow">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/topFundraisersCardImg03.jpg" alt="Assets/Images/home/topFundraisersCardImg03.jpg">
-                                        </div>
-                                        <div class="col-lg-6 m-auto">
-                                            <div class="card-body">
-                                                <div class="card-title">
-                                                    <h6>Brooklyn, NY</h6>
-                                                </div>
-                                                <div class="cardDetails">
-                                                    <h6 class="subHeading">Family of Antonina Zatulovsky ne..</h6>
-                                                    <p>
-                                                        Parents of Antonina Zatulovsky need your support! Their beautiful 15-ye…
-                                                    </p>
-                                                    <span>Last donation 4m ago</span>
-                                                    <div class="progress">
-                                                        <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-
-                                                        </div>
-                                                    </div>
-                                                    <div class="raisedAmount">
-                                                        <h6><strong>$68,153 raised</strong> of $75,000</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 mb-4">
-                            <a class="fundraisersCards" href="fund_detail.blade.php">
-                                <div class="card shadow">
-                                    <div class="row">
-                                        <div class="col-lg-6">
-                                            <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/findaFundlyNearYouImg01.jpg" alt="Assets/Images/home/findaFundlyNearYouImg01.jpg">
-                                        </div>
-                                        <div class="col-lg-6 m-auto">
-                                            <div class="card-body">
-                                                <div class="card-title">
-                                                    <h6>Rathfarnham, Dublin</h6>
-                                                </div>
-                                                <div class="cardDetails">
-                                                    <h6 class="subHeading">Refrain From The White Cane</h6>
-                                                    <p>
-                                                        Hello everyone, As many now know,2013 is a year I’m very gratef…
-                                                    </p>
-                                                    <span>Last donation 1m ago</span>
-                                                    <div class="progress">
-                                                        <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                                            <span class="sr-only">70% Complete</span>
-                                                        </div>
-                                                    </div>
-                                                    <div class="raisedAmount">
-                                                        <h6><strong>€16,730 raised</strong> of €40,000</h6>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="col-lg-3 mt-4 float-end text-end">
-                        <a class="seeMore" href="javascript:void(0)">See more <i class="fas fa-chevron-right ms-2"></i></a>
+                        @empty
+                            <p>No fundraising found.</p>
+                        @endforelse
                     </div>
                 </div>
             </div>
@@ -671,168 +572,36 @@
                 <div class="col-lg-9 m-auto">
                     <h2>Find a Fundraising near you</h2>
                     <div class="row">
-                        <div class="col-lg-4 mb-4">
-                            <a class="fundraisersCards" href="javascript:void(0)">
-                                <div class="card shadow">
-                                    <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/topFundraisersCardImg01.jpg" alt="Assets/Images/home/topFundraisersCardImg01.jpg">
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h6>Medicine Hat, AB</h6>
-                                        </div>
-                                        <div class="cardDetails">
-                                            <h6 class="subHeading">Freedom Convoy 2022</h6>
-                                            <p>
-                                                To our Fellow Canadians, the time for political over reach is over. Our cu…
-                                            </p>
-                                            <span>Last donation 1m ago</span>
-                                            <div class="progress">
-                                                <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                                    <span class="sr-only">70% Complete</span>
-                                                </div>
+                        @forelse($nearYous as $nearYou)
+                            <div class="col-lg-4 mb-4">
+                                <a class="fundraisersCards" href="{{ route('fund.detail',[$nearYou->id]) }}">
+                                    <div class="card shadow">
+                                        <img class="w-100" src="{{ asset($nearYou->image) }}" alt="{{ asset($nearYou->image) }}">
+                                        <div class="card-body">
+                                            <div class="card-title">
+                                                <h6>{{ $nearYou->users->name }}</h6>
                                             </div>
-                                            <div class="raisedAmount">
-                                                <h6><strong>$876,500 raised</strong> of $1.0M</h6>
+                                            <div class="cardDetails">
+                                                <h6 class="subHeading">{{ $nearYou->name }}</h6>
+                                                <p>
+                                                    {{ Illuminate\Support\Str::limit($nearYou->description, 50, $end='...') }}
+                                                </p>
+                                                <div class="progress">
+                                                    <div class="progress-bar" role="progressbar" aria-valuenow="{{ getPercentage($nearYou->orders->sum('amount'),$nearYou->amount) }}" aria-valuemin="0" aria-valuemax="100" style="width:{{ getPercentage($nearYou->orders->sum('amount'),$nearYou->amount) }}%">
+                                                        <span class="sr-only">{{ getPercentage($nearYou->orders->sum('amount'),$nearYou->amount) }}% Complete</span>
+                                                    </div>
+                                                </div>
+                                                <div class="raisedAmount">
+                                                    <h6><strong>${{ number_format($nearYou->orders->sum('amount')) }} raised</strong> of ${{ number_format($nearYou->amount) }}</h6>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 mb-4">
-                            <a class="fundraisersCards" href="javascript:void(0)">
-                                <div class="card shadow">
-                                    <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/topFundraisersCardImg02.jpg" alt="Assets/Images/home/topFundraisersCardImg02.jpg">
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h6>Riverhills QLD</h6>
-                                        </div>
-                                        <div class="cardDetails">
-                                            <h6 class="subHeading">Tonga Tsunami relief by Pita Taufatofua</h6>
-                                            <p>
-                                                Hi All, Pita Taufatofua, the Tongan Flag Bearer here. As you all know …
-                                            </p>
-                                            <span>Last donation 52s ago</span>
-                                            <div class="progress">
-                                                <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                                    <span class="sr-only">70% Complete</span>
-                                                </div>
-                                            </div>
-                                            <div class="raisedAmount">
-                                                <h6><strong>$615,590 raised</strong> of $1.0M</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 mb-4">
-                            <a class="fundraisersCards" href="javascript:void(0)">
-                                <div class="card shadow">
-                                    <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/topFundraisersCardImg03.jpg" alt="Assets/Images/home/topFundraisersCardImg03.jpg">
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h6>Brooklyn, NY</h6>
-                                        </div>
-                                        <div class="cardDetails">
-                                            <h6 class="subHeading">Family of Antonina Zatulovsky ne..</h6>
-                                            <p>
-                                                Parents of Antonina Zatulovsky need your support! Their beautiful 15-ye…
-                                            </p>
-                                            <span>Last donation 4m ago</span>
-                                            <div class="progress">
-                                                <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-
-                                                </div>
-                                            </div>
-                                            <div class="raisedAmount">
-                                                <h6><strong>$68,153 raised</strong> of $75,000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 mb-4">
-                            <a class="fundraisersCards" href="javascript:void(0)">
-                                <div class="card shadow">
-                                    <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/findaFundlyNearYouImg01.jpg" alt="Assets/Images/home/findaFundlyNearYouImg01.jpg">
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h6>Rathfarnham, Dublin</h6>
-                                        </div>
-                                        <div class="cardDetails">
-                                            <h6 class="subHeading">Refrain From The White Cane</h6>
-                                            <p>
-                                                Hello everyone, As many now know,2013 is a year I’m very gratef…
-                                            </p>
-                                            <span>Last donation 1m ago</span>
-                                            <div class="progress">
-                                                <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-                                                    <span class="sr-only">70% Complete</span>
-                                                </div>
-                                            </div>
-                                            <div class="raisedAmount">
-                                                <h6><strong>€16,730 raised</strong> of €40,000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 mb-4">
-                            <a class="fundraisersCards" href="javascript:void(0)">
-                                <div class="card shadow">
-                                    <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/helpMeSaveHome.jpg" alt="Assets/Images/home/helpMeSaveHome.jpg">
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h6>Castledooey, Donegal</h6>
-                                        </div>
-                                        <div class="cardDetails">
-                                            <h6 class="subHeading">Donegal Donkey Sanctuary / Lifeline..</h6>
-                                            <p>
-                                                What The Funds Are For: We are struggling to keep the doors open …
-                                            </p>
-                                            <span>Last donation 52s ago</span>
-                                            <div class="progress">
-                                                <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:70%">
-                                                    <span class="sr-only">70% Complete</span>
-                                                </div>
-                                            </div>
-                                            <div class="raisedAmount">
-                                                <h6><strong>€77,714 raised</strong> of €65,000</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-4 mb-4">
-                            <a class="fundraisersCards" href="javascript:void(0)">
-                                <div class="card shadow">
-                                    <img class="w-100" src="{{ asset('assets/front/Images/') }}/home/cute-donkeys-cattle-farm.jpg" alt="Assets/Images/home/cute-donkeys-cattle-farm.jpg">
-                                    <div class="card-body">
-                                        <div class="card-title">
-                                            <h6>Castledooey, Donegal</h6>
-                                        </div>
-                                        <div class="cardDetails">
-                                            <h6 class="subHeading">Winter Feed/ Bedding Appeal</h6>
-                                            <p>
-                                                Dear Supporters, Winter is upon us again and this year brings even grea…
-                                            </p>
-                                            <span>Last donation 4m ago</span>
-                                            <div class="progress">
-                                                <div class="progress-bar percent" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width:90%">
-
-                                                </div>
-                                            </div>
-                                            <div class="raisedAmount">
-                                                <h6><strong>€11,115 raised</strong> of €12,500</h6>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
+                                </a>
+                            </div>
+                        @empty
+                            <p>No fundraising found near by you.</p>
+                        @endforelse
                     </div>
                 </div>
             </div>

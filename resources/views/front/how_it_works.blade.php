@@ -1,5 +1,6 @@
-<?php include 'CommonFile/header.blade.php'; ?>
-
+@extends('front.layouts.app')
+@section('title') How it Works @endsection
+@section('content')
 <main>
     <section class="howItWorks pt-5 mt-5 text-center">
         <div class="container">
@@ -8,7 +9,7 @@
                 <p><b>Start Fundraising is the best place to fundraise, whether you are an individual, group, or organization.</b></p>
             </div>
             <div class="col-lg-11 m-auto">
-                <img class="w-100 mb-4" src="Assets/Images/howItWorks/howItWorkImg01.png" alt="Assets/Images/howItWorks/howItWorkImg01.png">
+                <img class="w-100 mb-4" src="{{ asset('assets/front/Images/') }}/howItWorks/howItWorkImg01.png" alt="Assets/Images/howItWorks/howItWorkImg01.png">
                 <div class="row">
                     <div class="col-lg-3 m-auto text-start mb-4 mt-0">
                         <div class="card worldwideLeader bg-transparent border-0">
@@ -73,7 +74,7 @@
                     <b>This website rocks! I raised close to $10,000 in less than 48 hours for my nephew’s medical needs, and your customer service was so prompt and helpful.”</b>
                 </h4>
                 <div class="col-2 col-lg-1 mt-3 mb-3 m-auto">
-                    <img class="w-100" src="Assets/Images/howItWorks/monica-s-testimonial1-1.png" alt="Assets/Images/howItWorks/monica-s-testimonial1-1.png">
+                    <img class="w-100" src="{{ asset('assets/front/Images/') }}/howItWorks/monica-s-testimonial1-1.png" alt="Assets/Images/howItWorks/monica-s-testimonial1-1.png">
                 </div>
                 <h5><b>– Monica S.</b></h5>
                 <p class="text-muted"><b>Raised $16,000 on Start Fundraising</b></p>
@@ -96,5 +97,4 @@
     </section>
 
 </main>
-
-<?php include 'CommonFile/footer.blade.php'; ?>
+@endsection

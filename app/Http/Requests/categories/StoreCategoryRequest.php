@@ -27,9 +27,15 @@ class StoreCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => [
-                'required'
-            ]
+            'name' => ['required'],
+            'image' => ['sometimes','required','image','mimes:jpg,jpeg,png'],
+            'heading' => ['required'],
+            'description' => ['required'],
+            'section_heading1' => ['required'],
+            'section_left_text1' => ['required'],
+            'section_left_text2' => ['required'],
+            'section_right_text1' => ['required'],
+            'section_right_text2' => ['required'],
         ];
     }
 }
