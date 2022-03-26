@@ -2,17 +2,24 @@
     <div class="container">
         <div class="row position-relative">
             <div class="col-lg-3">
-                <a href="{{ route('home.index') }}" class="footerLogo"><img class="w-100" src="{{ asset($setting->logo) }}" alt=""></a>
+                <a href="{{ route('home.index') }}" class="footerLogo"><img class="w-100"
+                                                                            src="{{ asset($setting->logo) }}"
+                                                                            alt=""></a>
                 <ul>
                     <li>
-                        <button type="button" class="btn btn-light p-1 ps-3 pe-3 mt-1 mb-1" data-bs-toggle="modal" data-bs-target="#staticBackdrop" translate="no" id='language-selected'><b>Select language</b></button>
+                        <button type="button" class="btn btn-light p-1 ps-3 pe-3 mt-1 mb-1" data-bs-toggle="modal"
+                                data-bs-target="#staticBackdrop" translate="no" id='language-selected'><b>Select
+                                language</b></button>
 
-                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false"
+                             tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
                             <div class="modal-dialog">
                                 <div class="modal-content">
                                     <div class="modal-header">
-                                        <h6 class="modal-title" id="staticBackdropLabel"><b>Update your settings</b></h6>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                        <h6 class="modal-title" id="staticBackdropLabel"><b>Update your settings</b>
+                                        </h6>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                                aria-label="Close"></button>
                                     </div>
                                     <div class="modal-body">
                                         <label class="form-label" for="google_translate_element">
@@ -281,7 +288,9 @@
 
                                         <div class="m-auto mt-3 mb-3">
                                             <button type="button" class="btn btn-success float-end">Save</button>
-                                            <button type="button" class="btn btn-light float-end me-3" data-bs-dismiss="modal">Cancel</button>
+                                            <button type="button" class="btn btn-light float-end me-3"
+                                                    data-bs-dismiss="modal">Cancel
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -289,47 +298,39 @@
                         </div>
                     </li>
                     <li>
-                        <button onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=TC5KBK3U4XETA')" type="button" class="btn btn-light px-4 mt-1 mb-1 success-color text-light"><b>Donate Now</b></button>
+                        <button onclick="window.open('https://www.paypal.com/donate/?hosted_button_id=TC5KBK3U4XETA')"
+                                type="button" class="btn btn-light px-4 mt-1 mb-1 success-color text-light"><b>Donate
+                                Now</b></button>
                     </li>
                 </ul>
             </div>
             <div class="col-lg-3">
                 <h6>FUNDRAISE FOR</h6>
                 <ul>
-                    <li>
-                        <a href="medical-fundraising.php">Medical</a>
-                    </li>
-                    <li>
-                        <a href="emergency-fundraising.php">Emergency</a>
-                    </li>
-                    <li>
-                        <a href="memorial-fundraising.php">Memorial</a>
-                    </li>
-                    <li>
-                        <a href="education-fundraising.php">Education</a>
-                    </li>
-                    <li>
-                        <a href="coronavirus-fundraising.php">Coronavirus fundraising</a>
-                    </li>
+                    @foreach($categories as $category)
+                        <li>
+                            <a href="{{ route('fund',[$category->id]) }}">{{ $category->name }}</a>
+                        </li>
+                    @endforeach
                 </ul>
             </div>
             <div class="col-lg-3">
                 <h6>LEARN MORE</h6>
                 <ul>
                     <li>
-                        <a href="how-it-works.php">How Start Fundraising works</a>
+                        <a href="{{ url('how-it-works') }}">How Start Fundraising works</a>
                     </li>
                     <li>
-                        <a href="common-questions.php">Common questions</a>
+                        <a href="{{ url('common-questions') }}">Common questions</a>
                     </li>
                     <li>
-                        <a href="success-stories.php">Success stories</a>
+                        <a href="{{ url('success-stories') }}">Success stories</a>
                     </li>
                     <li>
                         <a href="javascript:void(0)">Supported countries</a>
                     </li>
                     <li>
-                        <a href="pricing.php">Pricing</a>
+                        <a href="{{ url('pricing') }}">Pricing</a>
                     </li>
                 </ul>
             </div>
@@ -337,7 +338,7 @@
                 <h6>RESOURCES</h6>
                 <ul>
                     <li>
-                        <a href="help-center.php">Help center</a>
+                        <a href="{{ url('help-center') }}">Help center</a>
                     </li>
                     <li>
                         <a href="javascript:void(0)">Blog</a>
@@ -346,16 +347,18 @@
                         <a href="javascript:void(0)">Press center</a>
                     </li>
                     <li>
-                        <a href="careers.php">Careers</a>
+                        <a href="{{ url('careers') }}">Careers</a>
                     </li>
                     <li>
-                        <a href="about-us.php">About</a>
+                        <a href="{{ url('about_us') }}">About</a>
                     </li>
                     <li>
                         <div class="accordion footerDropdown" id="accordionExample">
                             <div class="accordion-item">
                                 <h2 class="accordion-header" id="headingOne">
-                                    <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="flase" aria-controls="collapseOne">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapseOne" aria-expanded="flase"
+                                            aria-controls="collapseOne">
                                         More resources
                                     </button>
                                 </h2>
@@ -369,7 +372,8 @@
             <div class="col-lg-9 me-0 m-auto">
                 <div class="accordion footerDropdown" id="accordionExample">
                     <div class="accordion-item">
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                             data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <h6>MORE RESOURCES</h6>
                                 <div class="row">

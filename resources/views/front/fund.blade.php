@@ -13,7 +13,7 @@
                             <h2 class="mb-0"><b>{{ $category->heading }}</b></h2>
                             <h5 class="text-muted">{{ $category->description }}</h5>
                             <div class="col-lg-3">
-                                <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                                <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
                             </div>
                         </div>
                     </div>
@@ -351,7 +351,7 @@
                     </div>
                 </div>
                 <div class="col-lg-2 m-auto">
-                    <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                    <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
                 </div>
             </div>
             </div>

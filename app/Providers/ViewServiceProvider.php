@@ -27,6 +27,6 @@ class ViewServiceProvider extends ServiceProvider
     public function boot()
     {
         View::composer('*', SettingComposer::class);
-        View::composer('front.layouts.header',CategoryComposer::class);
+        View::composer(['front.layouts.header','front.layouts.footer'],CategoryComposer::class);
     }
 }

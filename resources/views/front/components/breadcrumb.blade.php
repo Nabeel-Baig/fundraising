@@ -6,7 +6,7 @@
                 <h3 class="mb-0"><b>{{ $title }}</b></h3>
                 <h6 class="text-muted mt-3 mb-3">{{ $description }}</h6>
                 <div class="col-lg-3">
-                    <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                    <a class="startedBtn shadow" href="{{ url('becomemember') }}">Start Fundraising</a>
                 </div>
             </div>
         </div>

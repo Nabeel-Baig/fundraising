@@ -47,8 +47,8 @@
                         <ul class="dropdown-menu shadow">
                             <li><a class="nav-link" href="{{ route('discover') }}">Fundraisers</a></li>
                             <li><a class="nav-link" href="{{ url('success-stories') }}">Success Stories</a></li>
-                            <li><a class="nav-link" href="coronavirus-fundraising.php">Coronavirus fundraising</a></li>
-                            <li><a class="nav-link" href="pricing.php">Pricing</a></li>
+                            <li><a class="nav-link" href="{{ url('coronavirus-fundraising') }}">Coronavirus fundraising</a></li>
+                            <li><a class="nav-link" href="{{ url('pricing') }}">Pricing</a></li>
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
@@ -69,7 +69,7 @@
                         <a class="nav-link" href="{{ route('signIn') }}">Sign In</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link StartAfundly" href="becomemember.php">Start Fundraising</a>
+                        <a class="nav-link StartAfundly" href="{{ url('becomemember') }}">Start Fundraising</a>
                     </li>
                 </ul>
             </div>

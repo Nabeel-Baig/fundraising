@@ -11,7 +11,7 @@
                         <h2 class="mb-0"><b>Get help with education fundraising</b></h2>
                         <h5 class="text-muted mb-3">With Start Fundraising, you can quickly get help for school and education costs</h5>
                         <div class="col-lg-3 mb-4">
-                            <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                            <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
                         </div>
                         <p class="text-muted">Start Fundraising Katie raised $80k so every kid in her school could get a bike.</p>
                     </div>
@@ -403,7 +403,7 @@
                 </div>
             </div>
             <div class="col-lg-2 m-auto">
-                <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
             </div>
         </div>
         </div>

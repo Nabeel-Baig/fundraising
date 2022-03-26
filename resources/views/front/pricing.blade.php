@@ -1,6 +1,7 @@
-<?php include 'CommonFile/header.blade.php'; ?>
-
-<main>
+@extends('front.layouts.app')
+@section('title') Pricing @endsection
+@section('content')
+    <main>
 
     <section class="discoverSection01 pb-0">
         <div class="container">
@@ -230,5 +231,4 @@
 
 
 </main>
-
-<?php include 'CommonFile/footer.blade.php'; ?>
+@endsection

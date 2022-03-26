@@ -3,7 +3,7 @@
    <div class="container">
       <div class="col-lg-10 mt-5 mb-5 pt-5">
          <div class="discoverMainBanner">
-            <a class="backBtn" href="help-center.php"><i class="fa fa-angle-left"></i> Help Center</a>
+            <a class="backBtn" href="help_center.blade.php"><i class="fa fa-angle-left"></i> Help Center</a>
             <h1 class="mb-0"><b>Contact Us</b></h1>
             <div class="row mt-5">
                <div class="col-lg-9 m-auto">

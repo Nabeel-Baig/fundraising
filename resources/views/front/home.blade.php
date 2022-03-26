@@ -16,7 +16,7 @@
                     </div>
                     <div class="row mt-4">
                         <div class="col-lg-5">
-                            <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                            <a class="startedBtn shadow" href="{{ url('becomemember') }}">Start Fundraising</a>
                         </div>
                         <div class="col-lg-1">
                             <div class="verticalLine"></div>
@@ -515,7 +515,7 @@
                 </div>
             </div>
             <div class="col-lg-2 m-auto">
-                <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
             </div>
         </div>
         </div>
@@ -630,7 +630,7 @@
                 <div class="d-flex justify-content-between w-100 align-items-center py-3 px-2">
                     <h6 class="modal-title" id="staticBackdropLabel"><b>How it Works | Start Fundraising</b></h6>
                     <div class="d-flex justify-content-end align-items-center">
-                        <a class="startedBtn shadow me-3" href="becomemember.php">Start Fundraising</a>
+                        <a class="startedBtn shadow me-3" href="becomemember.blade.php">Start Fundraising</a>
                         <button type="button" class="btn-close" id=close-button data-bs-dismiss="modal" aria-label="Close me-3"></button>
                     </div>
                 </div>

@@ -11,7 +11,7 @@
                         <h2 class="mb-0"><b>Get help with memorial fundraising</b></h2>
                         <h5 class="text-muted mb-3">With a Fundraising , you can get immediate help with memorial costs.</h5>
                         <div class="col-lg-3 mb-4">
-                            <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                            <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
                         </div>
                         <p class="text-muted">Start a Fundraising Mark raised $11k for his beloved wife Jonnie's final expenses and memorial.</p>
                     </div>
@@ -403,7 +403,7 @@
                 </div>
             </div>
             <div class="col-lg-2 m-auto">
-                <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
             </div>
         </div>
         </div>

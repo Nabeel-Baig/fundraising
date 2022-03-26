@@ -1,5 +1,6 @@
-<?php include 'CommonFile/header.blade.php'; ?>
-
+@extends('front.layouts.app')
+@section('title') Coronavirus Fundraising @endsection
+@section('content')
 <main>
     <div class="progress-container">
         <div class="progress-bar coronavirusPage" id="progressBar"></div>
@@ -8,7 +9,7 @@
         <div class="container">
             <div class="row mt-5">
                 <div class="col-lg-1">
-                    <a class="StartAfundly" href="javascript:void(0)"><i class="fa fa-angle-left me-1"></i> Home</a>
+                    <a class="StartAfundly" href="{{ route('home.index') }}"><i class="fa fa-angle-left me-1"></i> Home</a>
                 </div>
                 <div class="col-lg-8">
                     <a class="StartAfundly" href="javascript:void(0)">Fundraising for Coronavirus Relief: How You Can Help the Fight</a>
@@ -21,7 +22,7 @@
                 <div class="col-lg-9">
                     <div class="coronavirusFundraisingBlog">
                         <h3><b>Fundraising for Coronavirus Relief: How You Can Help the Fight</b></h3>
-                        <img class="w-100" src="Assets/Images/coronavirusFundraising/coronavirusFundraisingImg01.jpg" alt="Assets/Images/coronavirusFundraising/coronavirusFundraisingImg01.jpg">
+                        <img class="w-100" src="{{ asset('assets/front/Images/') }}/coronavirusFundraising/coronavirusFundraisingImg01.jpg" alt="{{ asset('assets/front/Images/') }}/coronavirusFundraising/coronavirusFundraisingImg01.jpg">
                         <div class="row mt-3">
                             <div class="col-lg-1">
                                 <div class="socialMediaIcons">
@@ -103,5 +104,4 @@
 
     </section>
 </main>
-
-<?php include 'CommonFile/footer.blade.php'; ?>
+@endsection

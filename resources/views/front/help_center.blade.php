@@ -1,4 +1,6 @@
-<?php include 'CommonFile/header.blade.php'; ?>
+@extends('front.layouts.app')
+@section('title') Help Center @endsection
+@section('content')
 <section class="help-center">
    <div class="container">
       <div class="row">
@@ -11,7 +13,7 @@
             </div>
          </div>
          <div class="col-lg-4">
-            <img src="./Assets/Images/help-center/banner.png" alt="" class="w-100">
+            <img src="{{ asset('assets/front/Images/') }}/help-center/banner.png" alt="" class="w-100">
          </div>
       </div>
    </div>
@@ -213,7 +215,7 @@
                   <div class="card worldwideLeader bg-transparent border-0 position-relative">
 
                      <div class="card-body m-0">
-                        <img class="category-images text-start" src="Assets/Images/help-center/star.svg" height="20px" width="20px" alt="">
+                        <img class="category-images text-start" src="{{ asset('assets/front/Images/') }}/help-center/star.svg" height="20px" width="20px" alt="">
                         <h4>Get Started</h4>
                         <p class="mt-3">
                            Welcome! Discover how Start Fundraising works, and how to create a successful fundraiser.
@@ -226,7 +228,7 @@
                   <div class="card worldwideLeader bg-transparent border-0 position-relative">
 
                      <div class="card-body m-0">
-                        <img class="category-images text-start" src="Assets/Images/help-center/setting.svg" height="20px" width="20px" alt="">
+                        <img class="category-images text-start" src="{{ asset('assets/front/Images/') }}/help-center/setting.svg" height="20px" width="20px" alt="">
                         <h4>Manage Account</h4>
                         <p class="mt-3">
                            Learn how to make changes to your account and manage donations you've received.
@@ -239,7 +241,7 @@
                   <div class="card worldwideLeader bg-transparent border-0 position-relative">
 
                      <div class="card-body m-0">
-                        <img class="category-images text-start" src="Assets/Images/help-center/home.svg" height="20px" width="20px" alt="">
+                        <img class="category-images text-start" src="{{ asset('assets/front/Images/') }}/help-center/home.svg" height="20px" width="20px" alt="">
                         <h4>Transfer funds</h4>
                         <p class="mt-3">
                            Learn how to set up and troubleshoot bank transfers for a personal or company bank account.
@@ -252,7 +254,7 @@
                   <div class="card worldwideLeader bg-transparent border-0 position-relative">
 
                      <div class="card-body m-0">
-                        <img class="category-images text-start" src="Assets/Images/help-center/checkmark.svg" height="20px" width="20px" alt="">
+                        <img class="category-images text-start" src="{{ asset('assets/front/Images/') }}/help-center/checkmark.svg" height="20px" width="20px" alt="">
                         <h4>Safety & Security</h4>
                         <p class="mt-3">
                            Your safety is our priority. Find out how to report a fundraiser or remove a hold from your account.
@@ -280,4 +282,4 @@
 
    </div>
 </section>
-<?php include 'CommonFile/footer.blade.php'; ?>
+@endsection

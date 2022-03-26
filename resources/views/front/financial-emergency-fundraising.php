@@ -11,7 +11,7 @@
                         <h2><b>Need Help with Rent or Groceries? Get Financial Emergency Help</b></h2>
                         <h5 class="text-muted">Start your fundraiser and receive or give financial emergency help to someone</h5>
                         <div class="col-lg-3">
-                            <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                            <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
                         </div>
                     </div>
                 </div>
@@ -417,7 +417,7 @@
                 </div>
             </div>
             <div class="col-lg-2 m-auto">
-                <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
             </div>
         </div>
         </div>

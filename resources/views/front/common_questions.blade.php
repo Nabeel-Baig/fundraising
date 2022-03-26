@@ -1,18 +1,14 @@
-<?php include 'CommonFile/header.blade.php'; ?>
-<section class="discoverSection01">
-   <div class="container">
-      <div class="col-lg-12 mt-5 mb-5 pt-5 text-center">
-         <div class="discoverMainBanner">
-            <h1 class=""><b>Answers to Common Fundraising Questions</b></h1>
-            <h5 class="text-muted">Learn more about fundraising, donating, or receiving donations.</h5>
-         </div>
-      </div>
-   </div>
-</section>
+@extends('front.layouts.app')
+@section('title') Common Questions @endsection
+@section('content')
+    @component('front.components.breadcrumb')
+        @slot('title') Answers to Common Fundraising Questions @endslot
+        @slot('description') Learn more about fundraising, donating, or receiving donations. @endslot
+    @endcomponent
 <div class="container">
    <div class="row">
       <div class="col-lg-10 m-auto mb-4">
-         <img src="./Assets/Images/common-questions/banner.png" class="w-100" alt="">
+         <img src="{{ asset('assets/front/Images/') }}/common-questions/banner.png" class="w-100" alt="">
       </div>
    </div>
 </div>
@@ -38,7 +34,7 @@
                         <p>
                            Raising money for yourself or a loved one has never been easier. Plus, we’re here to help. Our Customer Care team will support you with customer service every step of the way.
                         </p>
-                        <a href="how_it_works.blade.php" class="see-all">How It Work</a>
+                        <a href="{{ url('how-it-works') }}" class="see-all">How It Work</a>
 
                      </div>
                   </div>
@@ -264,7 +260,7 @@
          <div class="card successStoriesCard shadow border-0">
             <div class="row">
                <div class="col-lg-3">
-                  <img class="w-100" src="Assets/Images/successStories/successStoriesImg01.jpeg" alt="">
+                  <img class="w-100" src="{{ asset('assets/front/Images/') }}/successStories/successStoriesImg01.jpeg" alt="">
                </div>
                <div class="col-lg-5 m-auto">
                   <h6><b>Learn how to become the next Fundraising success story</b></h6>
@@ -277,4 +273,4 @@
       </div>
    </div>
 </section>
-<?php include 'CommonFile/footer.blade.php'; ?>
+@endsection

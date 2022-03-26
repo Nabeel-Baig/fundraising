@@ -7,7 +7,7 @@
                 <h1 class="mb-0"><b>Start a Fundraiser</b></h1>
                 <h5 class="text-muted">People around the world are raising money for what they are passionate about.</h5>
                 <div class="col-lg-3">
-                    <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                    <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
                 </div>
             </div>
         </div>

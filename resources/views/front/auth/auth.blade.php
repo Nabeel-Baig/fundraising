@@ -18,14 +18,17 @@
                                                                     alt="{{ asset($setting->logo) }}"></a>
             </div>
             <div class="col-6 col-lg-4 text-end me-0 m-auto">
+                @guest
                 <div>
                     Don't have an account?
-                    <a href="becomemember.php" class="see-all">Sign Up</a>
+                    <a href="{{ url('sign-up') }}" class="see-all">Sign Up</a>
                 </div>
+                @endguest
             </div>
         </div>
     </div>
 </section>
 @yield('content')
+@yield('appJs')
 </body>
 </html>

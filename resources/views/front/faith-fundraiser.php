@@ -11,7 +11,7 @@
                         <h2><b>Discover faith fundraisers on Start Fundraising</b></h2>
                         <h5 class="text-muted">Help others by donating to their fundraiser, or start one for someone you care about.</h5>
                         <div class="col-lg-3">
-                            <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                            <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
                         </div>
                     </div>
                 </div>
@@ -251,7 +251,7 @@
                 </div>
             </div>
             <div class="col-lg-2 m-auto">
-                <a class="startedBtn shadow" href="becomemember.php">Start Fundraising</a>
+                <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
             </div>
         </div>
         </div>
