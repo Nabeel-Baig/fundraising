@@ -114,7 +114,11 @@
                                             Now</a>
                                     </div>
                                     <div class="col-lg-12">
-                                        <a class="startedBtn mt-0 mb-0 text-light" href="javascript:void(0)">Share</a>
+                                        <button type="button" data-bs-toggle="modal"
+                                                data-bs-target="#shareModal"
+                                                class="startedBtn mt-0 mb-0 text-light p-2"
+                                                href="javascript:void(0)">Share
+                                        </button>
                                     </div>
                                 </div>
                             </div>
