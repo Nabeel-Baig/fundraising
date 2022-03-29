@@ -266,7 +266,7 @@
                   <h6><b>Learn how to become the next Fundraising success story</b></h6>
                </div>
                <div class="col-lg-3 m-auto">
-                  <a class="StartAfundly shadow" href="javascript:void(0)">Crowdfunding lessons </a>
+                  <a class="StartAfundly shadow" href="{{ url('becomemember') }}">Crowdfunding lessons </a>
                </div>
             </div>
          </div>
