@@ -17,7 +17,7 @@ class CreateOrderTable extends Migration
             $table->id();
             $table->string('order_id')->unique();
             $table->integer('user_id')->nullable();
-            $table->integer('fund_id');
+            $table->integer('fund_id')->nullable();
             $table->string('name');
             $table->string('email');
             $table->string('country');

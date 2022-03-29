@@ -13,12 +13,12 @@
                             <h2 class="mb-0"><b>{{ $category->heading }}</b></h2>
                             <h5 class="text-muted">{{ $category->description }}</h5>
                             <div class="col-lg-3">
-                                <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
+                                <a class="startedBtn shadow" href="{{ url('becomemember') }}">Start Fundraising</a>
                             </div>
                         </div>
                     </div>
                     <div class="col-lg-6">
-                        <img class="w-100" src="{{ $category->image }}" alt="{{ $category->image }}">
+                        <img class="w-100" src="{{ asset($category->image) }}" alt="{{ asset($category->image) }}">
                     </div>
                 </div>
             </div>

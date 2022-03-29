@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\Front\DonationController;
+use App\Http\Controllers\Front\FundController;
+use App\Http\Controllers\Front\LoginController;
+use App\Http\Controllers\Front\RegisterController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
@@ -57,13 +61,14 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 
     Route::get('{any}', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 });
-Route::get('sign-in',[\App\Http\Controllers\Front\LoginController::class,'index'])->name('signIn');
-
-Route::view('sign-up','front.auth.sign_up')->name('signUp');
-Route::get('fund/{category}',[\App\Http\Controllers\Front\FundController::class,'index'])->name('fund');
-Route::get('fund-detail/{fund}',[\App\Http\Controllers\Front\FundController::class,'fund'])->name('fund.detail');
-Route::get('donate/{fund}',[\App\Http\Controllers\Front\DonationController::class,'index'])->name('donation');
-Route::post('donation',[\App\Http\Controllers\Front\DonationController::class,'donationPost'])->name('donation.post');
+Route::get('sign-in', [LoginController::class, 'index'])->name('signIn');
+Route::post('become-member', [RegisterController::class, 'becomeMember'])->name('becomeMember');
+Route::view('sign-up', 'front.auth.sign_up')->name('signUp');
+Route::post('user-sign-up', [RegisterController::class, 'signUp'])->name('user.signUp');
+Route::get('fund/{category}', [FundController::class, 'index'])->name('fund');
+Route::get('fund-detail/{fund}', [FundController::class, 'fund'])->name('fund.detail');
+Route::get('donate/{fund}', [DonationController::class, 'index'])->name('donation');
+Route::post('donation', [DonationController::class, 'donationPost'])->name('donation.post');
 Route::get('discover', [App\Http\Controllers\Front\DiscoverController::class, 'index'])->name('discover');
 Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('home.index');
 Route::get('{any}', [App\Http\Controllers\Front\HomeController::class, 'home'])->name('home');
