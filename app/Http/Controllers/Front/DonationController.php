@@ -5,10 +5,8 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\donations\StoreDonationRequest;
 use App\Models\Fund;
-use App\Models\Payment;
-use Illuminate\Support\Facades\Auth;
+use App\Services\StripeService;
 use Illuminate\View\View;
-use Haruncpi\LaravelIdGenerator\IdGenerator;
 
 class DonationController extends Controller
 {
@@ -17,54 +15,13 @@ class DonationController extends Controller
         return view('front.donate', compact('fund'));
     }
 
-    public function donationPost(StoreDonationRequest $request)
+    public function donationPost(StoreDonationRequest $request): \Illuminate\Http\RedirectResponse
     {
         try {
-            $order_id = IdGenerator::generate(['table' => 'orders', 'field' => 'order_id', 'length' => 6, 'prefix' => 'INV-']);
-            $order = \App\Models\Order::create([
-                'user_id' => (Auth::check()) ? auth()->user()->id : NULL,
-                'fund_id' => (int)$request->input('fund_id'),
-                'order_id' => $order_id,
-                'name' => $request->name,
-                'email' => $request->email,
-                'country' => $request->country,
-                'zipcode' => $request->zipcode,
-                'description' => $request->description,
-                'amount' => $request->amount,
-                'payment_status' => 'Unpaid'
-            ]);
-            $order->save();
-            \Stripe\Stripe::setApiKey(env('STRIPE_SECRET'));
-            $customer = \Stripe\Charge::create([
-                "amount" => (float)$request->amount * 100,
-                "currency" => "usd",
-                "source" => $request->stripeToken,
-                "description" => $request->description
-            ]);
-            if ($customer->status == 'succeeded') {
-                $order->payment_status = 'Paid';
-                $order->save();
-
-                $payment = new Payment();
-                $payment->user_id = $order->user_id;
-                $payment->order_id = $order->id;
-                $payment->stripe_id = $request->stripeToken;
-                $payment->amount = $request->amount;
-                $payment->balance_transaction = $customer->balance_transaction;
-                $payment->currency = $customer->currency;
-                $payment->description = $customer->description;
-                $payment->payment_id = $customer->id;
-                $payment->country = $customer->source->country;
-                $payment->exp_month = $customer->source->exp_month;
-                $payment->exp_year = $customer->source->exp_year;
-                $payment->fingerprint = $customer->source->fingerprint;
-                $payment->card_number = $customer->source->last4;
-                $payment->receipt_url = $customer->receipt_url;
-                $payment->save();
-            }
+            (new StripeService())->stripeCreate($request);
         } catch (\Exception $e) {
-            dd($e->getMessage());
+            return back()->withErrors($e->getMessage());
         }
-        return back()->withSuccess('Thank you for your donations.');;
+        return back()->withSuccess('Thank you for your donations.');
     }
 }

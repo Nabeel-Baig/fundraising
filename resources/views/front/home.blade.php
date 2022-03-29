@@ -515,7 +515,7 @@
                 </div>
             </div>
             <div class="col-lg-2 m-auto">
-                <a class="startedBtn shadow" href="becomemember.blade.php">Start Fundraising</a>
+                <a class="startedBtn shadow" href="{{ url('becomemember') }}">Start Fundraising</a>
             </div>
         </div>
         </div>
@@ -614,7 +614,7 @@
                 <h5>Over $330 Million Raised To Date</h5>
             </div>
             <div class="col-lg-4 m-auto">
-                <a class="startedBtn shadow" href="javascript:void(0)">
+                <a class="startedBtn shadow" href="{{ url('becomemember') }}">
                     <p class="mb-0">Start a Free Fundraiser</p>
                     <span><i>Start Raising Money For Your Cause</i></span>
                 </a>
@@ -630,7 +630,7 @@
                 <div class="d-flex justify-content-between w-100 align-items-center py-3 px-2">
                     <h6 class="modal-title" id="staticBackdropLabel"><b>How it Works | Start Fundraising</b></h6>
                     <div class="d-flex justify-content-end align-items-center">
-                        <a class="startedBtn shadow me-3" href="becomemember.blade.php">Start Fundraising</a>
+                        <a class="startedBtn shadow me-3" href="{{ url('becomemember') }}">Start Fundraising</a>
                         <button type="button" class="btn-close" id=close-button data-bs-dismiss="modal" aria-label="Close me-3"></button>
                     </div>
                 </div>

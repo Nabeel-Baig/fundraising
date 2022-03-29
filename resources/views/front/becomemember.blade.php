@@ -1,7 +1,8 @@
 @extends('front.auth.auth')
 @section('title') Become a Member @endsection
 @section('content')
-    <form id="form1" action="" method="post">
+    <form id="form1" action="{{ route('becomeMember') }}" method="post">
+        @csrf
         <section id="step1">
             <div class="container mt-5 pt-5">
                 <div class="row">

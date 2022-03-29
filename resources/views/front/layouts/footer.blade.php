@@ -443,22 +443,19 @@
                 <div class="col-lg-4 m-auto me-0">
                     <ul>
                         <li>
-                            <a class="faceBookIcon" href="javascript:void(0)"><i class="fab fa-facebook-square"></i></a>
+                            <a target="_blank" class="faceBookIcon" href="https://www.facebook.com/Fundraisingcup/"><i class="fab fa-facebook-square"></i></a>
                         </li>
                         <li>
-                            <a class="youTubeIcon" href="javascript:void(0)"><i class="fab fa-youtube"></i></a>
+                            <a target="_blank" class="youTubeIcon" href="https://www.youtube.com/c/FUNDRAISINGCUPORG/featured"><i class="fab fa-youtube"></i></a>
                         </li>
                         <li>
-                            <a class="twitter" href="javascript:void(0)"><i class="fab fa-twitter"></i></a>
+                            <a target="_blank" class="twitter" href="https://twitter.com/fundraisingcup"><i class="fab fa-twitter"></i></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)"><i class="fab fa-instagram"></i></a>
+                            <a target="_blank" href="https://www.instagram.com/fundraisingcup/"><i class="fab fa-instagram"></i></a>
                         </li>
                         <li>
-                            <a href="javascript:void(0)"><i class="fab fa-medium-m"></i></a>
-                        </li>
-                        <li>
-                            <a href="javascript:void(0)"><i class="fas fa-microphone"></i></a>
+                            <a target="_blank" href="https://www.pinterest.com/FundraisingCupMinistry/"><i class="fab fa-pinterest"></i></a>
                         </li>
                     </ul>
                 </div>
