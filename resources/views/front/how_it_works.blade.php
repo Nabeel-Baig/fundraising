@@ -61,7 +61,7 @@
                     </div>
                 </div>
                 <div class="col-lg-3 m-auto mt-3 mb-5">
-                    <a class="startedBtn mt-0 mb-0 text-light" href="javascript:void(0)">Start Fundraising</a>
+                    <a class="startedBtn mt-0 mb-0 text-light" href="{{ url('becomemember') }}">Start Fundraising</a>
                 </div>
             </div>
         </div>
@@ -90,7 +90,7 @@
                 </h4>
                 <p class="text-muted"><b>Millions trust Start Fundraising as the #1 online fundraising expert. That’s why more people start fundraisers on Start Fundraising than any other platform.</b></p>
                 <div class="col-lg-3 m-auto">
-                    <a class="startedBtn mt-0 mb-0 text-light" href="javascript:void(0)">Learn more</a>
+                    <a class="startedBtn mt-0 mb-0 text-light" href="{{ url('becomemember') }}">Learn more</a>
                 </div>
             </div>
         </div>

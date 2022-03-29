@@ -126,11 +126,11 @@
                                 </div>
                             </div>
                             <div class="col-lg-2">
-                                <a class="nav-link StartAfundly" href="javascript:void(0)">Learn more</a>
+                                <a class="nav-link StartAfundly" href="{{ url('becomemember') }}">Learn more</a>
                             </div>
                         </div>
                         <div class="col-lg-3 m-auto mt-5">
-                            <a class="startedBtn mt-0 mb-0 text-light" href="javascript:void(0)">Start Fundraising </a>
+                            <a class="startedBtn mt-0 mb-0 text-light" href="{{ url('becomemember') }}">Start Fundraising </a>
                         </div>
                     </div>
                 </div>

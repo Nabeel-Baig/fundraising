@@ -38,7 +38,7 @@
                                         <h4 class="mb-0">May 6, 2021 | 9 min read</h4>
                                     </div>
                                     <div class="col-lg-4 ms-0 m-auto">
-                                        <a class="financialAssistanceBtn shadow" href="javascript:void(0)"><i class="me-1 fas fa-sm fa-tag"></i> Financial Assistance</a>
+                                        <a class="financialAssistanceBtn shadow" href="{{ url('becomemember') }}"><i class="me-1 fas fa-sm fa-tag"></i> Financial Assistance</a>
                                     </div>
                                 </div>
                                 <div class="content">
@@ -48,7 +48,7 @@
                                     <p>
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged.
                                     </p>
-                                    <a class="startedBtn mb-4" href="javascript:void(0)">Start a coronavirus fundraiser</a>
+                                    <a class="startedBtn mb-4" href="{{ url('becomemember') }}">Start a coronavirus fundraiser</a>
                                     <h5><b>What is the coronavirus and how can you stay safe?</b></h5>
                                     <p>
                                         Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
