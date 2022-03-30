@@ -1,12 +1,10 @@
 <?php
 
-namespace App\Http\Requests\funds;
+namespace App\Http\Requests\payments;
 
 use Illuminate\Foundation\Http\FormRequest;
-use Gate;
-use Symfony\Component\HttpFoundation\Response;
 
-class MassDestroyOrderRequest extends FormRequest
+class MassDestroyPaymentRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -15,7 +13,6 @@ class MassDestroyOrderRequest extends FormRequest
      */
     public function authorize()
     {
-        abort_if(Gate::denies('order_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         return true;
     }
 
@@ -28,7 +25,7 @@ class MassDestroyOrderRequest extends FormRequest
     {
         return [
             'ids' => 'required|array',
-            'ids.*' => 'exists:orders,id'
+            'ids.*' => 'exists:payments,id'
         ];
     }
 }

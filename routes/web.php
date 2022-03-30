@@ -55,6 +55,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
     Route::delete('orders/destroy', [App\Http\Controllers\Admin\OrdersController::class, 'massDestroy'])->name('orders.massDestroy');
     Route::resource('orders', OrdersController::class);
 
+    // Payments
+    Route::delete('payments/destroy', [App\Http\Controllers\Admin\PaymentsController::class, 'massDestroy'])->name('payments.massDestroy');
+    Route::resource('payments', PaymentsController::class);
+
     // Update User Details
     Route::put('/update-profile/{user}', [App\Http\Controllers\HomeController::class, 'updateProfile'])->name('updateProfile');
     Route::get('/edit-profile', [App\Http\Controllers\HomeController::class, 'editProfile'])->name('editProfile');
