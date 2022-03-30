@@ -59,6 +59,7 @@ class OrdersController extends Controller
 
     public function show(Order $order)
     {
+        abort_if(Gate::denies('order_show'),RESPONSE::HTTP_FORBIDDEN, '403 Forbidden');
         $order->load('funds');
         return \response()->json($order);
     }

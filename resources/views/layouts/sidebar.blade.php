@@ -64,6 +64,14 @@
                             </a>
                         </li>
                     @endcan
+                    @can('payment_access')
+                        <li>
+                            <a href="{{ route('admin.payments.index') }}" class="waves-effect">
+                                <i class="bx bx-user"></i>
+                                <span>Stripe Payments</span>
+                            </a>
+                        </li>
+                    @endcan
 
                     @can('setting_edit')
                         <li>

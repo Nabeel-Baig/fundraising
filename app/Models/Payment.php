@@ -4,7 +4,9 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use App\Models\Order;
 
 class Payment extends Model
 {
@@ -36,4 +38,14 @@ class Payment extends Model
         'updated_at',
         'deleted_at',
     ];
+
+    final public function orders(): BelongsTo
+    {
+        return $this->belongsTo(Order::class,'order_id','id');
+    }
+
+    final public function users(): BelongsTo
+    {
+        return $this->belongsTo(User::class,'user_id','id');
+    }
 }

@@ -217,6 +217,24 @@ class PermissionSeeder extends Seeder
                 'title' => 'order_access',
                 'created_at' => '2019-09-27 07:11:07',
                 'updated_at' => '2019-09-27 07:11:07',
+            ],
+            [
+                'id' => '35',
+                'title' => 'payment_access',
+                'created_at' => '2019-09-27 07:11:07',
+                'updated_at' => '2019-09-27 07:11:07',
+            ],
+            [
+                'id' => '36',
+                'title' => 'payment_show',
+                'created_at' => '2019-09-27 07:11:07',
+                'updated_at' => '2019-09-27 07:11:07',
+            ],
+            [
+                'id' => '37',
+                'title' => 'payment_delete',
+                'created_at' => '2019-09-27 07:11:07',
+                'updated_at' => '2019-09-27 07:11:07',
             ]
         ];
 
