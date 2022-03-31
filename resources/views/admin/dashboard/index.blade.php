@@ -45,8 +45,8 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <p class="text-muted fw-medium">Orders</p>
-                                    <h4 class="mb-0">1,235</h4>
+                                    <p class="text-muted fw-medium">Donator (s)</p>
+                                    <h4 class="mb-0">{{ $donation->donation_count }}</h4>
                                 </div>
 
                                 <div class="mini-stat-icon avatar-sm rounded-circle bg-primary align-self-center">
@@ -63,8 +63,8 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <p class="text-muted fw-medium">Revenue</p>
-                                    <h4 class="mb-0">$35, 723</h4>
+                                    <p class="text-muted fw-medium">Donated Amount</p>
+                                    <h4 class="mb-0">${{number_format($donation->donation_amount)}}</h4>
                                 </div>
 
                                 <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
@@ -81,8 +81,8 @@
                         <div class="card-body">
                             <div class="media">
                                 <div class="media-body">
-                                    <p class="text-muted fw-medium">Average Price</p>
-                                    <h4 class="mb-0">$16.2</h4>
+                                    <p class="text-muted fw-medium">Total Funds</p>
+                                    <h4 class="mb-0">{{ $fund }}</h4>
                                 </div>
 
                                 <div class="avatar-sm rounded-circle bg-primary align-self-center mini-stat-icon">
