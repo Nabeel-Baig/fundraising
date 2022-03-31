@@ -17,7 +17,7 @@
         margin: auto;
     }
     .moboileVeiw ul li {
-        margin: auto 30px;
+        margin: auto 20px;
         text-align: center;
     }
     .socialMediaIcons,
@@ -64,7 +64,16 @@
     .donationHeading .input-group-text{
         font-size: 30px;
     }
-
+    .moboileVeiw {
+        display: block;
+        margin: auto;
+    }
+    .searchBarActive{
+        width: 100%;
+    }
+    .searchBar input{
+        font-size: 0.9rem;
+    }
 }
 
 @media screen and (max-width: 1199px) and (min-width: 992px) {

@@ -4,7 +4,7 @@
             <div class="moboileVeiw">
                 <ul>
                     <li class="nav-item">
-                        <a class="nav-link" href="javascript:void(0)"><i class="fas fa-search"></i></a>
+                        <a class="nav-link" href="javascript:void(0)" onclick="searchBarActive()"><i class="fas fa-search"></i></a>
                     </li>
                     <li class="nav-item">
                         <a class="navbar-brand m-auto" href="{{ route('home.index') }}"><img class="w-100"
@@ -21,6 +21,19 @@
                         </button>
                     </li>
                 </ul>
+                <div class="searchBar" id="searchBar">
+                <div class="col-lg-12">
+                  <div class="input-group mb-3">
+                    <span class="input-group-text" class="searchIcon" id="search">
+                      <i class="fas fa-search"></i>
+                    </span>
+                    <input type="text" class="form-control" placeholder="Find fundraisers by name or location" aria-label="Find fundraisers by name or location" aria-describedby="search">
+                    <div class="close" id="close">
+                      <i class="fas fa-times"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
             <li class="nav-item footerStartAfundly">
                 <a class="nav-link StartAfundly" href="{{ route('home.index') }}">Start Fundraising</a>
@@ -31,7 +44,7 @@
                                                                          src="{{ asset($setting->logo) }}"
                                                                          alt="{{ asset($setting->logo) }}"></a>
                     <li class="nav-item searchLi">
-                        <a class="nav-link" href="javascript:void(0)"><i class="fas fa-search"></i> Search</a>
+                        <a class="nav-link" href="javascript:void(0)" onclick="searchBarActive()"><i class="fas fa-search"></i> Search</a>
                     </li>
                 </ul>
 
@@ -72,7 +85,31 @@
                         <a class="nav-link StartAfundly" href="{{ url('becomemember') }}">Start Fundraising</a>
                     </li>
                 </ul>
+                <div class="searchBar" id="searchBar">
+                    <div class="col-lg-12">
+                      <div class="input-group mb-3">
+                        <span class="input-group-text" class="searchIcon" id="search">
+                          <i class="fas fa-search"></i>
+                        </span>
+                        <input type="text" class="form-control" placeholder="Find fundraisers by name or location" aria-label="Find fundraisers by name or location" aria-describedby="search">
+                        <div class="close" id="close">
+                          <i class="fas fa-times"></i>
+                        </div>
+                      </div>
+                    </div>
+                </div>
             </div>
         </div>
     </nav>
 </header>
+
+<script>
+    function searchBarActive() {
+      var element = document.getElementById("searchBar");
+      element.classList.add("searchBarActive");
+    }
+    document.querySelector('#close').addEventListener('click', () => {
+      var element = document.getElementById("searchBar");
+      element.classList.remove("searchBarActive");
+    })
+</script>

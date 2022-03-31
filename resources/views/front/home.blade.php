@@ -575,7 +575,7 @@
                         @forelse($nearYous as $nearYou)
                             <div class="col-lg-4 mb-4">
                                 <a class="fundraisersCards" href="{{ route('fund.detail',[$nearYou->id]) }}">
-                                    <div class="card shadow">
+                                    <div class="card shadow h-100">
                                         <img class="w-100" src="{{ asset($nearYou->image) }}" alt="{{ asset($nearYou->image) }}">
                                         <div class="card-body">
                                             <div class="card-title">

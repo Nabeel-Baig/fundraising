@@ -327,9 +327,6 @@
                         <a href="{{ url('success-stories') }}">Success stories</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">Supported countries</a>
-                    </li>
-                    <li>
                         <a href="{{ url('pricing') }}">Pricing</a>
                     </li>
                 </ul>
@@ -380,36 +377,27 @@
                                     <div class="col-lg-4">
                                         <ul>
                                             <li>
-                                                <a href="javascript:void(0)">Fundraising ideas</a>
+                                                <a href="{{ url('coronavirus-fundraising') }}">Rent assistance</a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0)">Rent assistance</a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">Fundraising sites</a>
+                                                <a href="{{ url('coronavirus-fundraising') }}">Fundraising sites</a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-4">
                                         <ul>
                                             <li>
-                                                <a href="javascript:void(0)">What is crowdfunding?</a>
+                                                <a href="{{ url('coronavirus-fundraising') }}">Help with bills</a>
                                             </li>
                                             <li>
-                                                <a href="javascript:void(0)">Help with bills</a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">Help with medical bills</a>
+                                                <a href="{{ url('coronavirus-fundraising') }}">Help with medical bills</a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-4">
                                         <ul>
                                             <li>
-                                                <a href="javascript:void(0)">School fundraising ideas</a>
-                                            </li>
-                                            <li>
-                                                <a href="javascript:void(0)">How to get a service dog</a>
+                                                <a href="{{ url('coronavirus-fundraising') }}">How to get a service dog</a>
                                             </li>
                                         </ul>
                                     </div>
