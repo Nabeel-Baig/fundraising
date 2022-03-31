@@ -27,7 +27,7 @@ Route::resource('verify', App\Http\Controllers\Auth\TwoFactorController::class)-
 Route::post('/update-password/{id}', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
 
 Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Controllers\Admin', 'middleware' => ['auth', 'twofactor']], function () {
-    Route::get('/', [App\Http\Controllers\HomeController::class, 'root'])->name('dashboard');
+    Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'root'])->name('dashboard');
     // Permissions
     Route::delete('permissions/destroy', [App\Http\Controllers\Admin\PermissionsController::class, 'massDestroy'])->name('permissions.massDestroy');
     Route::resource('permissions', PermissionsController::class);

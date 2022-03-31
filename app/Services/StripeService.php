@@ -3,9 +3,11 @@
 namespace App\Services;
 
 use App\Http\Requests\donations\StoreDonationRequest;
+use App\Mail\OrderDonation;
 use App\Models\Payment;
 use Haruncpi\LaravelIdGenerator\IdGenerator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Mail;
 
 class StripeService {
     public function stripeCreate(StoreDonationRequest $request)
@@ -51,6 +53,7 @@ class StripeService {
                 $payment->card_number = $customer->source->last4;
                 $payment->receipt_url = $customer->receipt_url;
                 $payment->save();
+                Mail::to(\App\Models\Setting::select('email')->findOrFail(1)->email)->send(new OrderDonation($order));
             }
         } catch (\Exception $e) {
             return back()->withErrors($e->getMessage());
