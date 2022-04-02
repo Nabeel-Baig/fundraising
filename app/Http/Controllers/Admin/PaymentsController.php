@@ -20,7 +20,13 @@ class PaymentsController extends Controller
     {
         abort_if(Gate::denies('payment_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         if (request()->ajax()) {
-            $payments = Payment::with(['orders:id,order_id','users:id,name'])->orderBy('id','desc')->get();
+            $payments = Payment::with(['orders:id,order_id','users:id,name'])->orderBy('id','desc');
+            $user = \auth()->user();
+            if ($user->CountUserRole() > 0) {
+                $payments->get();
+            } else {
+                $payments->where('user_id',$user->id)->get();
+            }
             return datatables()->of($payments)
                 ->addColumn('checkbox', function ($data) {
                     return '<input type="checkbox" class="delete_checkbox flat" value="' . $data['id'] . '">';
