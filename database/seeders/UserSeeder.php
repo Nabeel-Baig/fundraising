@@ -49,7 +49,7 @@ class UserSeeder extends Seeder
         foreach ($names as $name) {
             $users[] = [
                 'name'           => $name,
-                'email'          => $name.'@gmail.com',
+                'email'          => strtolower($name).'@gmail.com',
                 'password'       => Hash::make('Abcd1234'),
                 'phone'          => '923333906233',
                 'avatar'         => '/assets/uploads/users/GETw4HKdxLS1mItiLU3x2ks99wbrxOUt9Asesb56.jpg',

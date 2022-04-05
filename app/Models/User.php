@@ -2,12 +2,11 @@
 
 namespace App\Models;
 
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
-use App\Models\Role;
+use Illuminate\Support\Facades\DB;
 
 class User extends Authenticatable
 {
@@ -104,5 +103,10 @@ class User extends Authenticatable
         $this->two_factor_code = null;
         $this->two_factor_expires_at = null;
         $this->save();
+    }
+
+    public function scopeCountUserRole()
+    {
+        return DB::table('role_user')->where('user_id',\auth()->user()->id)->whereIn('role_id',[1,2])->count();
     }
 }

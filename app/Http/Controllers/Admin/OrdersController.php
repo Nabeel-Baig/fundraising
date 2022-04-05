@@ -22,7 +22,13 @@ class OrdersController extends Controller
     {
         abort_if(Gate::denies('order_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         if (request()->ajax()) {
-            $orders = Order::with(['funds:id,name','users:id,name'])->orderBy('id','desc')->get();
+            $orders = Order::with(['funds:id,name','users:id,name'])->orderBy('id','desc');
+            $user = \auth()->user();
+            if ($user->CountUserRole() > 0) {
+                $orders->get();
+            } else {
+                $orders->where('user_id',$user->id)->get();
+            }
             return datatables()->of($orders)
                 ->addColumn('checkbox', function ($data) {
                     return '<input type="checkbox" class="delete_checkbox flat" value="' . $data['id'] . '">';

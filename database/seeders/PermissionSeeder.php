@@ -178,17 +178,6 @@ class PermissionSeeder extends Seeder
                 'updated_at' => '2019-09-27 07:11:07',
             ],
             [
-                'id' => '28',
-                'title' => 'users_access',
-                'created_at' => '2019-09-27 07:11:07',
-                'updated_at' => '2019-09-27 07:11:07',
-            ],
-            [
-                'id' => '29',
-                'title'      => 'admin_access',
-                'created_at' => '2019-09-27 07:11:07',
-                'updated_at' => '2019-09-27 07:11:07',
-            ],[
                 'id' => '30',
                 'title' => 'order_create',
                 'created_at' => '2019-09-27 07:11:07',

@@ -22,7 +22,13 @@ class FundsController extends Controller
     {
         abort_if(Gate::denies('fund_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
         if (request()->ajax()) {
-            $funds = Fund::with(['category:id,name','users:id,name'])->orderBy('id','desc')->get();
+            $funds = Fund::with(['category:id,name','users:id,name'])->orderBy('id','desc');
+            $user = \auth()->user();
+            if ($user->CountUserRole() > 0) {
+                $funds->get();
+            } else {
+                $funds->where('user_id',$user->id)->get();
+            }
             return datatables()->of($funds)
                 ->addColumn('checkbox', function ($data) {
                     return '<input type="checkbox" class="delete_checkbox flat" value="' . $data['id'] . '">';
