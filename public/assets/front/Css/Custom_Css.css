@@ -1407,3 +1407,28 @@ button.startedBtn {
     color: #fff !important;
     width: 100%;
 }
+/* how-it-work */
+.col-lg-6.align-text {
+  align-self: center;
+}
+
+.image-section-set {
+  padding:100px 0px 100px 100px ;
+}
+.image-section-set-1{
+  padding: 100px 100px 100px 0px;
+}
+.image-section-set-1 img {
+  border-radius: 50% 50% 50% 50%;
+}
+.image-section-set img {
+  border-radius: 50% 50% 50% 50%;
+}
+ul.list-styling li {
+  list-style-type: disc;
+}
+ul.list-styling li::marker {
+  color: #30515B;
+  font-size: 20px;
+}
+/* how-it-work */
