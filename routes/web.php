@@ -68,6 +68,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'App\Http\Co
 Route::get('sign-in', [LoginController::class, 'index'])->name('signIn');
 Route::post('become-member', [RegisterController::class, 'becomeMember'])->name('becomeMember');
 Route::view('sign-up', 'front.auth.sign_up')->name('signUp');
+Route::view('fundraising-ideas', 'front.fundraising-ideas')->name('fundraising-ideas');
+Route::view('supported-countries', 'front.supported-countries')->name('supported-countries');
 Route::post('user-sign-up', [RegisterController::class, 'signUp'])->name('user.signUp');
 Route::get('fund/{category}', [FundController::class, 'index'])->name('fund');
 Route::get('fund-detail/{fund}', [FundController::class, 'fund'])->name('fund.detail');

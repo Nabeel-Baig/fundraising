@@ -329,6 +329,9 @@
                     <li>
                         <a href="{{ url('pricing') }}">Pricing</a>
                     </li>
+                    <li>
+                        <a href="{{ url('supported-countries') }}">Supported Countries</a>
+                    </li>
                 </ul>
             </div>
             <div class="col-lg-3">
@@ -338,7 +341,7 @@
                         <a href="{{ url('help-center') }}">Help center</a>
                     </li>
                     <li>
-                        <a href="javascript:void(0)">Blog</a>
+                        <a href="https://myprojectstaging.net/development/start-fundraising/blog/">Blog</a>
                     </li>
                     <li>
                         <a href="javascript:void(0)">Press center</a>
@@ -377,27 +380,33 @@
                                     <div class="col-lg-4">
                                         <ul>
                                             <li>
-                                                <a href="{{ url('coronavirus-fundraising') }}">Rent assistance</a>
+                                                <a href="https://myprojectstaging.net/development/start-fundraising/blog/2022/03/30/women-health/">Women Health</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('coronavirus-fundraising') }}">Fundraising sites</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-4">
-                                        <ul>
-                                            <li>
-                                                <a href="{{ url('coronavirus-fundraising') }}">Help with bills</a>
+                                                <a href="https://myprojectstaging.net/development/start-fundraising/blog/2022/03/30/you-can-win-with-jesus/">You Can Win With Jesus</a>
                                             </li>
                                             <li>
-                                                <a href="{{ url('coronavirus-fundraising') }}">Help with medical bills</a>
+                                                <a href="https://myprojectstaging.net/custom/fundraising/public/how-it-works">What is crowdfunding?</a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-4">
                                         <ul>
                                             <li>
-                                                <a href="{{ url('coronavirus-fundraising') }}">How to get a service dog</a>
+                                                <a href="https://myprojectstaging.net/development/start-fundraising/blog/2022/03/30/be-your-dogs-best-friend/">Be Your Dogs Best Friend</a>
+                                            </li>
+                                            <li>
+                                                <a href="https://myprojectstaging.net/development/start-fundraising/blog/2022/03/30/freshwater-fish-for-your-aquarium/">Freshwater Fish For Your Aquarium</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-4">
+                                        <ul>
+                                            <li>
+                                                <a href="https://myprojectstaging.net/development/start-fundraising/blog/2022/03/30/stress-self-esteem-reaching-out-for-help/">Stress Self Esteem Reaching Out For Help</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{ url('fundraising-ideas') }}">Fundraising ideas</a>
                                             </li>
                                         </ul>
                                     </div>
