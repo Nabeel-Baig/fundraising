@@ -56,6 +56,7 @@ class RegisterController extends Controller
         $user->email = $request->email;
         $user->password = Hash::make($request->password);
         $user->save();
+        $user->roles()->sync(3);
         return $user;
     }
 }
